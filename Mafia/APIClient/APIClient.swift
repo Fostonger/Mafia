@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class APIClient {
+    func sendRequest(method: String) {
+        
+    }
+}

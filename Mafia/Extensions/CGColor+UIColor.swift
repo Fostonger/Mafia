@@ -1,8 +1,8 @@
-//
-//  CGColor+UIColor.swift
-//  Mafia
-//
-//  Created by Булат Мусин on 24.10.2022.
-//
-
 import Foundation
+import UIKit
+
+extension CGColor {
+    static func uiColor(_ color: UIColor) -> CGColor {
+        return color.cgColor
+    }
+}

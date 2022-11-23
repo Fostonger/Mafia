@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0523462628FF908B004198CD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523462528FF908A004198CD /* LoginViewController.swift */; };
+		0523462A28FF9259004198CD /* LoginCredentialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523462928FF9259004198CD /* LoginCredentialsViewController.swift */; };
+		0523462F28FF9A97004198CD /* UIViewController+ParentImplementing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523462E28FF9A97004198CD /* UIViewController+ParentImplementing.swift */; };
 		0567E91F28FF8CD6001F774A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567E91E28FF8CD6001F774A /* AppDelegate.swift */; };
 		0567E92128FF8CD6001F774A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567E92028FF8CD6001F774A /* SceneDelegate.swift */; };
 		0567E92328FF8CD6001F774A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567E92228FF8CD6001F774A /* ViewController.swift */; };
@@ -16,6 +19,15 @@
 		0567E93628FF8CDB001F774A /* MafiaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567E93528FF8CDB001F774A /* MafiaTests.swift */; };
 		0567E94028FF8CDB001F774A /* MafiaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567E93F28FF8CDB001F774A /* MafiaUITests.swift */; };
 		0567E94228FF8CDB001F774A /* MafiaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567E94128FF8CDB001F774A /* MafiaUITestsLaunchTests.swift */; };
+		05F4C53E290280B800286D6F /* AsyncState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4C53D290280B800286D6F /* AsyncState.swift */; };
+		05F4C540290280F300286D6F /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4C53F290280F300286D6F /* Notifier.swift */; };
+		05F4C54229029E3700286D6F /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4C54129029E3700286D6F /* APIClient.swift */; };
+		05F4C5442906AE2200286D6F /* CGColor+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4C5432906AE2200286D6F /* CGColor+UIColor.swift */; };
+		05F4C5462906B18D00286D6F /* Functional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4C5452906B18D00286D6F /* Functional.swift */; };
+		05F4C5482906B70100286D6F /* CollectionsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4C5472906B70100286D6F /* CollectionsExtension.swift */; };
+		0825F30C37DBCBD8F5FB17DD /* Pods_Mafia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A4A114FFCFD550986DE997 /* Pods_Mafia.framework */; };
+		9C5151E48D651B7DE7744314 /* Pods_MafiaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 256FAFCBCF57BCF5141E7C3D /* Pods_MafiaTests.framework */; };
+		E8CF526D5E3CBBC9A77E8477 /* Pods_Mafia_MafiaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A228C4169945046C33D5C36B /* Pods_Mafia_MafiaUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03A4A114FFCFD550986DE997 /* Pods_Mafia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mafia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0523462528FF908A004198CD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0523462928FF9259004198CD /* LoginCredentialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentialsViewController.swift; sourceTree = "<group>"; };
+		0523462E28FF9A97004198CD /* UIViewController+ParentImplementing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ParentImplementing.swift"; sourceTree = "<group>"; };
 		0567E91B28FF8CD6001F774A /* Mafia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mafia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0567E91E28FF8CD6001F774A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0567E92028FF8CD6001F774A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +65,20 @@
 		0567E93B28FF8CDB001F774A /* MafiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MafiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0567E93F28FF8CDB001F774A /* MafiaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MafiaUITests.swift; sourceTree = "<group>"; };
 		0567E94128FF8CDB001F774A /* MafiaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MafiaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		05F4C53D290280B800286D6F /* AsyncState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncState.swift; sourceTree = "<group>"; };
+		05F4C53F290280F300286D6F /* Notifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
+		05F4C54129029E3700286D6F /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		05F4C5432906AE2200286D6F /* CGColor+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGColor+UIColor.swift"; sourceTree = "<group>"; };
+		05F4C5452906B18D00286D6F /* Functional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functional.swift; sourceTree = "<group>"; };
+		05F4C5472906B70100286D6F /* CollectionsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsExtension.swift; sourceTree = "<group>"; };
+		256FAFCBCF57BCF5141E7C3D /* Pods_MafiaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MafiaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35289EAE3026555892D1B825 /* Pods-MafiaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MafiaTests.debug.xcconfig"; path = "Target Support Files/Pods-MafiaTests/Pods-MafiaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		57C5A150EF947E83372A0BE9 /* Pods-Mafia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mafia.release.xcconfig"; path = "Target Support Files/Pods-Mafia/Pods-Mafia.release.xcconfig"; sourceTree = "<group>"; };
+		9BA6E7A026D7B38F45251C22 /* Pods-Mafia-MafiaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mafia-MafiaUITests.release.xcconfig"; path = "Target Support Files/Pods-Mafia-MafiaUITests/Pods-Mafia-MafiaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A228C4169945046C33D5C36B /* Pods_Mafia_MafiaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mafia_MafiaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD81AA0B0D64F940F6AAEE18 /* Pods-MafiaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MafiaTests.release.xcconfig"; path = "Target Support Files/Pods-MafiaTests/Pods-MafiaTests.release.xcconfig"; sourceTree = "<group>"; };
+		D1B8A55C0D3F1B86F18F98B1 /* Pods-Mafia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mafia.debug.xcconfig"; path = "Target Support Files/Pods-Mafia/Pods-Mafia.debug.xcconfig"; sourceTree = "<group>"; };
+		E8068ED3729F79A53E595DF7 /* Pods-Mafia-MafiaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mafia-MafiaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Mafia-MafiaUITests/Pods-Mafia-MafiaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0825F30C37DBCBD8F5FB17DD /* Pods_Mafia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C5151E48D651B7DE7744314 /* Pods_MafiaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +102,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8CF526D5E3CBBC9A77E8477 /* Pods_Mafia_MafiaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0523462428FF9070004198CD /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0523462528FF908A004198CD /* LoginViewController.swift */,
+				0523462928FF9259004198CD /* LoginCredentialsViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		0523462C28FF9A51004198CD /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				05F4C54129029E3700286D6F /* APIClient.swift */,
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
+		0523462D28FF9A61004198CD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0523462E28FF9A97004198CD /* UIViewController+ParentImplementing.swift */,
+				05F4C5432906AE2200286D6F /* CGColor+UIColor.swift */,
+				05F4C5472906B70100286D6F /* CollectionsExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		0567E91228FF8CD6001F774A = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +143,8 @@
 				0567E93428FF8CDB001F774A /* MafiaTests */,
 				0567E93E28FF8CDB001F774A /* MafiaUITests */,
 				0567E91C28FF8CD6001F774A /* Products */,
+				2ECA6B1FAAC0747EA290C7E6 /* Pods */,
+				0E24A8F9597AA865C31C03F4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +161,10 @@
 		0567E91D28FF8CD6001F774A /* Mafia */ = {
 			isa = PBXGroup;
 			children = (
+				05F4C53C290280A800286D6F /* Common */,
+				0523462D28FF9A61004198CD /* Extensions */,
+				0523462C28FF9A51004198CD /* APIClient */,
+				0523462428FF9070004198CD /* Login */,
 				0567E91E28FF8CD6001F774A /* AppDelegate.swift */,
 				0567E92028FF8CD6001F774A /* SceneDelegate.swift */,
 				0567E92228FF8CD6001F774A /* ViewController.swift */,
@@ -127,6 +193,39 @@
 			path = MafiaUITests;
 			sourceTree = "<group>";
 		};
+		05F4C53C290280A800286D6F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				05F4C53D290280B800286D6F /* AsyncState.swift */,
+				05F4C53F290280F300286D6F /* Notifier.swift */,
+				05F4C5452906B18D00286D6F /* Functional.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		0E24A8F9597AA865C31C03F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				03A4A114FFCFD550986DE997 /* Pods_Mafia.framework */,
+				A228C4169945046C33D5C36B /* Pods_Mafia_MafiaUITests.framework */,
+				256FAFCBCF57BCF5141E7C3D /* Pods_MafiaTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2ECA6B1FAAC0747EA290C7E6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D1B8A55C0D3F1B86F18F98B1 /* Pods-Mafia.debug.xcconfig */,
+				57C5A150EF947E83372A0BE9 /* Pods-Mafia.release.xcconfig */,
+				E8068ED3729F79A53E595DF7 /* Pods-Mafia-MafiaUITests.debug.xcconfig */,
+				9BA6E7A026D7B38F45251C22 /* Pods-Mafia-MafiaUITests.release.xcconfig */,
+				35289EAE3026555892D1B825 /* Pods-MafiaTests.debug.xcconfig */,
+				CD81AA0B0D64F940F6AAEE18 /* Pods-MafiaTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +233,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0567E94528FF8CDB001F774A /* Build configuration list for PBXNativeTarget "Mafia" */;
 			buildPhases = (
+				31129B2B25AB64A2AAF342D1 /* [CP] Check Pods Manifest.lock */,
 				0567E91728FF8CD6001F774A /* Sources */,
 				0567E91828FF8CD6001F774A /* Frameworks */,
 				0567E91928FF8CD6001F774A /* Resources */,
+				CEC39290BE29A76D48E945D1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,6 +252,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0567E94828FF8CDB001F774A /* Build configuration list for PBXNativeTarget "MafiaTests" */;
 			buildPhases = (
+				3EE7F3E5EA15540B4887F77C /* [CP] Check Pods Manifest.lock */,
 				0567E92D28FF8CDB001F774A /* Sources */,
 				0567E92E28FF8CDB001F774A /* Frameworks */,
 				0567E92F28FF8CDB001F774A /* Resources */,
@@ -169,9 +271,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0567E94B28FF8CDB001F774A /* Build configuration list for PBXNativeTarget "MafiaUITests" */;
 			buildPhases = (
+				E91BDFE9C4902B3CCF25AECD /* [CP] Check Pods Manifest.lock */,
 				0567E93728FF8CDB001F774A /* Sources */,
 				0567E93828FF8CDB001F774A /* Frameworks */,
 				0567E93928FF8CDB001F774A /* Resources */,
+				6B2D5AA27DB5EAB3828D0692 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,14 +357,126 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		31129B2B25AB64A2AAF342D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mafia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3EE7F3E5EA15540B4887F77C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MafiaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B2D5AA27DB5EAB3828D0692 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mafia-MafiaUITests/Pods-Mafia-MafiaUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mafia-MafiaUITests/Pods-Mafia-MafiaUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mafia-MafiaUITests/Pods-Mafia-MafiaUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CEC39290BE29A76D48E945D1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mafia/Pods-Mafia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mafia/Pods-Mafia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mafia/Pods-Mafia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E91BDFE9C4902B3CCF25AECD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mafia-MafiaUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0567E91728FF8CD6001F774A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05F4C53E290280B800286D6F /* AsyncState.swift in Sources */,
+				05F4C5482906B70100286D6F /* CollectionsExtension.swift in Sources */,
+				05F4C540290280F300286D6F /* Notifier.swift in Sources */,
 				0567E92328FF8CD6001F774A /* ViewController.swift in Sources */,
+				0523462F28FF9A97004198CD /* UIViewController+ParentImplementing.swift in Sources */,
+				0523462628FF908B004198CD /* LoginViewController.swift in Sources */,
 				0567E91F28FF8CD6001F774A /* AppDelegate.swift in Sources */,
 				0567E92128FF8CD6001F774A /* SceneDelegate.swift in Sources */,
+				05F4C5442906AE2200286D6F /* CGColor+UIColor.swift in Sources */,
+				05F4C5462906B18D00286D6F /* Functional.swift in Sources */,
+				0523462A28FF9259004198CD /* LoginCredentialsViewController.swift in Sources */,
+				05F4C54229029E3700286D6F /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +582,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -420,7 +636,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -432,6 +648,7 @@
 		};
 		0567E94628FF8CDB001F774A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1B8A55C0D3F1B86F18F98B1 /* Pods-Mafia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -443,8 +660,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -460,6 +676,7 @@
 		};
 		0567E94728FF8CDB001F774A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57C5A150EF947E83372A0BE9 /* Pods-Mafia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -471,8 +688,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -488,6 +704,7 @@
 		};
 		0567E94928FF8CDB001F774A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35289EAE3026555892D1B825 /* Pods-MafiaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +725,7 @@
 		};
 		0567E94A28FF8CDB001F774A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD81AA0B0D64F940F6AAEE18 /* Pods-MafiaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -528,6 +746,7 @@
 		};
 		0567E94C28FF8CDB001F774A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8068ED3729F79A53E595DF7 /* Pods-Mafia-MafiaUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -546,6 +765,7 @@
 		};
 		0567E94D28FF8CDB001F774A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BA6E7A026D7B38F45251C22 /* Pods-Mafia-MafiaUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

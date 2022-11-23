@@ -1,8 +1,8 @@
-//
-//  CollectionsExtension.swift
-//  Mafia
-//
-//  Created by Булат Мусин on 24.10.2022.
-//
-
 import Foundation
+
+extension Optional where Wrapped: Collection {
+    var isNilOrEmpty: Bool {
+        let q = self?.isEmpty ?? true
+        return q
+    }
+}
