@@ -9,8 +9,28 @@ import UIKit
 import SnapKit
 
 class LoginViewModel {
-    func logIn(with credentials: LoginCredentials) {
+    func logIn(with credentials: LoginCredentials, loginView: UIViewController) {
         print("nickname: \(credentials.nickname) \npassword: \(credentials.password)")
+        let scene = UIApplication.shared.connectedScenes.first
+        let query = {
+            return [kSecClass as String: kSecClassInternetPassword,
+                    kSecAttrAccount as String: credentials.nickname,
+                    kSecValueData as String: credentials.password]
+        }
+        guard let delegate = scene?.delegate as? SceneDelegate else {
+            fatalError("there is no scene delegate")
+        }
+//        do {
+//            try delegate.keyChainManager.addQuery(query)
+            delegate.openHomeView()
+//        } catch {
+//            fatalError("couldn't save into keyChain")
+//        }
+//        UIView.animate(withDuration: 0.3, delay: 0, animations: {
+//            loginView.view.alpha = 0
+//        }) { _ in
+//
+//        }
     }
 }
 
@@ -25,8 +45,9 @@ class LoginViewController: UIViewController {
         textField.backgroundColor = .secondarySystemBackground
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
+        textField.textContentType = .nickname
         return textField
-    }();
+    }()
     
     private let passwordTextField: UITextField = {
         let textField = UITextField()
@@ -36,8 +57,9 @@ class LoginViewController: UIViewController {
         textField.returnKeyType = .done
         textField.placeholder = "Type in your password"
         textField.backgroundColor = .secondarySystemBackground
+        textField.textContentType = .password
         return textField
-    }();
+    }()
     
     private let loginView: UIView = {
         let view = UIView()
@@ -49,8 +71,6 @@ class LoginViewController: UIViewController {
     private let loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Login", for: .normal)
-//        button.titleLabel?.textColor = .label
-//        button.titleLabel?.font = .systemFont(ofSize: 12)
         button.layer.borderColor = UIColor.systemGray.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 8
@@ -122,7 +142,7 @@ class LoginViewController: UIViewController {
         }
         loginButton.isEnabled = false
         let credentials = LoginCredentials(nickname: nickname, password: password)
-        model.logIn(with: credentials)
+        model.logIn(with: credentials, loginView: self)
     }
 }
 

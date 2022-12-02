@@ -10,15 +10,32 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    let keyChainManager = MafiaKeyChain()
+    
+    func openHomeView() {
+        let coorinator = HomeCoordinator()
+        setRootViewController(coorinator)
+    }
 
-
+    func setRootViewController(_ vc: UIViewController) {
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
+            self.window!.rootViewController?.view.alpha = 0
+        }) { _ in
+            vc.view.alpha = 0
+            self.window!.rootViewController = vc
+            UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn) {
+                self.window!.rootViewController?.view.alpha = 1
+            }
+        }
+    }
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
         let userHasLoggedIn = false // TODO: login logic
         let vc = UIStoryboard(name: "Main", bundle: nil)
             .instantiateViewController(identifier: userHasLoggedIn ?
-                                       "UserHasLoggedIn" : "LoginViewController")
+                                       "HomeScreen" : "LoginViewController")
         self.window!.rootViewController = vc
         self.window!.makeKeyAndVisible()
     }

@@ -10,6 +10,9 @@
 		0523462628FF908B004198CD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523462528FF908A004198CD /* LoginViewController.swift */; };
 		0523462A28FF9259004198CD /* LoginCredentialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523462928FF9259004198CD /* LoginCredentialsViewController.swift */; };
 		0523462F28FF9A97004198CD /* UIViewController+ParentImplementing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523462E28FF9A97004198CD /* UIViewController+ParentImplementing.swift */; };
+		05430E28293A67CC009EF22C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05430E27293A67CC009EF22C /* HomeViewController.swift */; };
+		05430E34293AADE6009EF22C /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05430E33293AADE6009EF22C /* HomeCoordinator.swift */; };
+		05430E38293AB237009EF22C /* EnterCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05430E37293AB237009EF22C /* EnterCodeViewController.swift */; };
 		0567E91F28FF8CD6001F774A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567E91E28FF8CD6001F774A /* AppDelegate.swift */; };
 		0567E92128FF8CD6001F774A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567E92028FF8CD6001F774A /* SceneDelegate.swift */; };
 		0567E92328FF8CD6001F774A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567E92228FF8CD6001F774A /* ViewController.swift */; };
@@ -19,6 +22,7 @@
 		0567E93628FF8CDB001F774A /* MafiaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567E93528FF8CDB001F774A /* MafiaTests.swift */; };
 		0567E94028FF8CDB001F774A /* MafiaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567E93F28FF8CDB001F774A /* MafiaUITests.swift */; };
 		0567E94228FF8CDB001F774A /* MafiaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567E94128FF8CDB001F774A /* MafiaUITestsLaunchTests.swift */; };
+		05EEA070292E7EC300E68DFE /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEA06F292E7EC300E68DFE /* KeyChain.swift */; };
 		05F4C53E290280B800286D6F /* AsyncState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4C53D290280B800286D6F /* AsyncState.swift */; };
 		05F4C540290280F300286D6F /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4C53F290280F300286D6F /* Notifier.swift */; };
 		05F4C54229029E3700286D6F /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4C54129029E3700286D6F /* APIClient.swift */; };
@@ -52,6 +56,9 @@
 		0523462528FF908A004198CD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0523462928FF9259004198CD /* LoginCredentialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentialsViewController.swift; sourceTree = "<group>"; };
 		0523462E28FF9A97004198CD /* UIViewController+ParentImplementing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ParentImplementing.swift"; sourceTree = "<group>"; };
+		05430E27293A67CC009EF22C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		05430E33293AADE6009EF22C /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		05430E37293AB237009EF22C /* EnterCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCodeViewController.swift; sourceTree = "<group>"; };
 		0567E91B28FF8CD6001F774A /* Mafia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mafia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0567E91E28FF8CD6001F774A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0567E92028FF8CD6001F774A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +72,7 @@
 		0567E93B28FF8CDB001F774A /* MafiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MafiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0567E93F28FF8CDB001F774A /* MafiaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MafiaUITests.swift; sourceTree = "<group>"; };
 		0567E94128FF8CDB001F774A /* MafiaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MafiaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		05EEA06F292E7EC300E68DFE /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		05F4C53D290280B800286D6F /* AsyncState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncState.swift; sourceTree = "<group>"; };
 		05F4C53F290280F300286D6F /* Notifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
 		05F4C54129029E3700286D6F /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -136,6 +144,32 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		05430E26293A67B0009EF22C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				05430E35293AB20F009EF22C /* JoinLobby */,
+				05430E27293A67CC009EF22C /* HomeViewController.swift */,
+				05430E33293AADE6009EF22C /* HomeCoordinator.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		05430E35293AB20F009EF22C /* JoinLobby */ = {
+			isa = PBXGroup;
+			children = (
+				05430E36293AB21C009EF22C /* EnterCodeView */,
+			);
+			path = JoinLobby;
+			sourceTree = "<group>";
+		};
+		05430E36293AB21C009EF22C /* EnterCodeView */ = {
+			isa = PBXGroup;
+			children = (
+				05430E37293AB237009EF22C /* EnterCodeViewController.swift */,
+			);
+			path = EnterCodeView;
+			sourceTree = "<group>";
+		};
 		0567E91228FF8CD6001F774A = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +195,7 @@
 		0567E91D28FF8CD6001F774A /* Mafia */ = {
 			isa = PBXGroup;
 			children = (
+				05430E26293A67B0009EF22C /* Home */,
 				05F4C53C290280A800286D6F /* Common */,
 				0523462D28FF9A61004198CD /* Extensions */,
 				0523462C28FF9A51004198CD /* APIClient */,
@@ -199,6 +234,7 @@
 				05F4C53D290280B800286D6F /* AsyncState.swift */,
 				05F4C53F290280F300286D6F /* Notifier.swift */,
 				05F4C5452906B18D00286D6F /* Functional.swift */,
+				05EEA06F292E7EC300E68DFE /* KeyChain.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -465,11 +501,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05430E38293AB237009EF22C /* EnterCodeViewController.swift in Sources */,
 				05F4C53E290280B800286D6F /* AsyncState.swift in Sources */,
 				05F4C5482906B70100286D6F /* CollectionsExtension.swift in Sources */,
+				05430E34293AADE6009EF22C /* HomeCoordinator.swift in Sources */,
 				05F4C540290280F300286D6F /* Notifier.swift in Sources */,
 				0567E92328FF8CD6001F774A /* ViewController.swift in Sources */,
 				0523462F28FF9A97004198CD /* UIViewController+ParentImplementing.swift in Sources */,
+				05430E28293A67CC009EF22C /* HomeViewController.swift in Sources */,
 				0523462628FF908B004198CD /* LoginViewController.swift in Sources */,
 				0567E91F28FF8CD6001F774A /* AppDelegate.swift in Sources */,
 				0567E92128FF8CD6001F774A /* SceneDelegate.swift in Sources */,
@@ -477,6 +516,7 @@
 				05F4C5462906B18D00286D6F /* Functional.swift in Sources */,
 				0523462A28FF9259004198CD /* LoginCredentialsViewController.swift in Sources */,
 				05F4C54229029E3700286D6F /* APIClient.swift in Sources */,
+				05EEA070292E7EC300E68DFE /* KeyChain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
