@@ -60,6 +60,7 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setupViews()
         makeConstraints()
+        setupButtons()
     }
     
     private func setupViews() {

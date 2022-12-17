@@ -7,14 +7,20 @@ protocol LobbiesCoordinator {
 }
 
 class HomeCoordinator: UINavigationController {
-    let model = HomeModel()
+    let model: HomeModel
     let user: User
     
-    init(user: User) {
+    private init(user: User, model: HomeModel) {
         self.user = user
+        self.model = model
         super.init(nibName: nil, bundle: nil)
         let homeView = HomeViewController()
         setViewControllers([homeView], animated: true)
+    }
+    
+    static func make(user: User, client: APIClient) -> HomeCoordinator {
+        let model = HomeModel(client: client)
+        let coordinator = HomeCoordinator(user: user, model: model)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,7 +42,7 @@ extension HomeCoordinator: LobbiesCoordinator {
             switch result {
             case .success(let gameId):
                 break
-                // self.present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: <#T##Bool#>)
+                self.present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: <#T##Bool#>)
             case .failure(let error):
                 self.presentAlert(title: "Не удалось подключиться к лобби", message: error.localizedDescription)
             }

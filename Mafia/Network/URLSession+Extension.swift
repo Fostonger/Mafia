@@ -11,7 +11,6 @@ extension URLSession {
         expecting: T.Type,
         completion: @escaping (Result<T, Error>) -> ()
     ) {
-        
         guard let url = url else {
             completion(.failure(APIError.invalidRequest))
             return

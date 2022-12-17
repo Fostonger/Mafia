@@ -18,13 +18,6 @@ public final class Notifier<Args> {
         isBusy = false
     }
     
-    public func subscribe(_ f: @escaping (Args) -> Void) -> NSObject {
-        assert(Thread.isMainThread)
-        let identity = NSObject()
-        table[identity] = f
-        return identity
-    }
-    
     public func unsubscribe(_ identity: NSObject) {
         assert(Thread.isMainThread)
         let v = table.removeValue(forKey: identity)

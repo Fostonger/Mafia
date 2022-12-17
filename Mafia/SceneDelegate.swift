@@ -11,9 +11,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     let keyChainManager = MafiaKeyChain()
+    let client = APIClient()
     
-    func openHomeView() {
-        let coorinator = HomeCoordinator()
+    func openHomeView(with user: User) {
+        let coorinator = HomeCoordinator.make(user: user, client: client)
         setRootViewController(coorinator)
     }
 

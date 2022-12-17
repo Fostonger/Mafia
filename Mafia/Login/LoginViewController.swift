@@ -10,27 +10,24 @@ import SnapKit
 
 class LoginViewModel {
     func logIn(with credentials: LoginCredentials, loginView: UIViewController) {
-        print("nickname: \(credentials.nickname) \npassword: \(credentials.password)")
         let scene = UIApplication.shared.connectedScenes.first
         let query = {
             return [kSecClass as String: kSecClassInternetPassword,
                     kSecAttrAccount as String: credentials.nickname,
-                    kSecValueData as String: credentials.password]
+                    kSecValueData as String: credentials.password.data(using: .utf8)!]
         }
         guard let delegate = scene?.delegate as? SceneDelegate else {
             fatalError("there is no scene delegate")
         }
 //        do {
 //            try delegate.keyChainManager.addQuery(query)
-            delegate.openHomeView()
 //        } catch {
-//            fatalError("couldn't save into keyChain")
+//            print(error)
 //        }
-//        UIView.animate(withDuration: 0.3, delay: 0, animations: {
-//            loginView.view.alpha = 0
-//        }) { _ in
-//
-//        }
+        
+        // TODO: Send request and get UserId and nickname of user
+        let user = User(id: 0, nickname: "Fost")
+        delegate.openHomeView(with: user)
     }
 }
 
@@ -45,7 +42,7 @@ class LoginViewController: UIViewController {
         textField.backgroundColor = .secondarySystemBackground
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
-        textField.textContentType = .nickname
+        textField.textContentType = .username
         return textField
     }()
     

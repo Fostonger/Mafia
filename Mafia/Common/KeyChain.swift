@@ -10,7 +10,7 @@ final class MafiaKeyChain {
     func addServer(to query: @escaping() -> [String: Any]) -> () -> [String: Any]{
         return {
             var prevQuery = query()
-            prevQuery[kSecAttrServer as String] = "www.mafia.com"
+            prevQuery[kSecAttrService as String] = "mafia.com"
             return prevQuery
         }
     }

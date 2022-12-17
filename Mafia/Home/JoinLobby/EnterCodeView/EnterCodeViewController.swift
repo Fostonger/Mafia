@@ -8,22 +8,20 @@
 import UIKit
 
 class EnterCodeViewController: UIViewController {
-    private let nicknameTextField: UITextField = {
+    private let codeTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
-        textField.tag = 0
-        textField.returnKeyType = .next
-        textField.placeholder = "Type in your nickname"
+        textField.placeholder = "Lobby Code"
         textField.backgroundColor = .secondarySystemBackground
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
-        textField.textContentType = .nickname
+        textField.contentMode = .center
         return textField
     }()
     
-    private let loginButton: UIButton = {
+    private let joinButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Login", for: .normal)
+        button.setTitle("Join", for: .normal)
         button.layer.borderColor = UIColor.systemGray.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 8
@@ -31,7 +29,7 @@ class EnterCodeViewController: UIViewController {
         return button
     }()
     
-    private let loginStackView: UIStackView = {
+    private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
@@ -48,44 +46,46 @@ class EnterCodeViewController: UIViewController {
     }
     
     private func setupViews() {
-        view.addSubview(loginStackView)
-        loginStackView.addArrangedSubview(nicknameTextField)
-        loginStackView.addArrangedSubview(loginButton)
+        view.backgroundColor = .systemBackground
+        view.addSubview(stackView)
+        stackView.addArrangedSubview(codeTextField)
+        stackView.addArrangedSubview(joinButton)
+        codeTextField.delegate = self
     }
     
     private func setupConstraints() {
         
-        loginStackView.snp.makeConstraints { make in
+        stackView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
             make.top.equalTo(view.snp_topMargin).inset(32)
         }
-        nicknameTextField.snp.makeConstraints { make in
+        codeTextField.snp.makeConstraints { make in
             make.height.equalTo(40)
-            make.width.equalTo(100)
+            make.width.equalTo(200)
         }
-        loginButton.snp.makeConstraints { make in
+        joinButton.snp.makeConstraints { make in
             make.height.equalTo(40)
             make.width.equalTo(90)
         }
     }
     
     private func setupButtons() {
-        loginButton.addTarget(self, action: #selector(joinByCode), for: .touchUpInside)
+        joinButton.addTarget(self, action: #selector(joinByCode), for: .touchUpInside)
     }
     
     @objc func joinByCode() {
         guard let coordinator = navigationController as? LobbiesCoordinator,
-              let code = nicknameTextField.text else {
+              let code = codeTextField.text else {
             return
         }
-        coordinator.joinLobby(byCode: code)
+        coordinator.joinLobby(with: code)
     }
 
 }
 
 extension EnterCodeViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        loginButton.isEnabled = (textField.text?.count ?? 0) + string.count - range.length > 0
+        joinButton.isEnabled = (textField.text?.count ?? 0) + string.count - range.length > 0
         return true
     }
 }

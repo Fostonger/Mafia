@@ -1,8 +1,6 @@
-//
-//  User.swift
-//  Mafia
-//
-//  Created by Булат Мусин on 04.12.2022.
-//
+typealias UserId = Int
 
-import Foundation
+struct User {
+    let id: UserId
+    let nickname: String
+}
