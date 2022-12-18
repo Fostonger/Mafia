@@ -1,0 +1,85 @@
+import UIKit
+import SnapKit
+
+class PlayerCollectionViewCell: UICollectionViewCell {
+    private let profileImage: UIImageView = {
+        let image = UIImageView()
+        return image
+    }()
+    
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setup(user: User, image: UIImage, isDead: Bool) {
+        nameLabel.text = user.nickname
+        profileImage.image = image
+        if isDead {
+            drawCross()
+        }
+    }
+    
+    private func setupViews() {
+        addSubview(profileImage)
+        addSubview(nameLabel)
+        profileImage.snp.makeConstraints { make in
+            make.leading.equalToSuperview().inset(25/2)
+            make.trailing.equalToSuperview().inset(25/2)
+            make.bottom.equalToSuperview().inset(25)
+            make.height.equalTo(frame.height-25)
+        }
+        nameLabel.snp.makeConstraints { make in
+            make.bottom.equalToSuperview()
+            make.horizontalEdges.equalToSuperview()
+            make.height.equalTo(25)
+        }
+    }
+    
+    private func drawCross() {
+        if let image = profileImage.image {
+            profileImage.image = image |> convertToGrayScale
+        }
+        let path = UIBezierPath()
+        let maxHeight = profileImage.frame.height
+        let maxWidth = profileImage.frame.width
+        path.move(to: CGPoint(x: 0, y: 0))
+        path.addLine(to: CGPoint(x: maxWidth, y: maxHeight))
+        path.move(to: CGPoint(x: maxWidth, y: 0))
+        path.addLine(to: CGPoint(x: 0, y: maxHeight))
+        path.close()
+        path.lineWidth = 2
+        UIColor.red.setStroke()
+        path.stroke()
+    }
+    
+    private func convertToGrayScale(image: UIImage) -> UIImage {
+
+        let imageRect:CGRect = CGRect(x:0, y:0, width:image.size.width, height: image.size.height)
+
+        let colorSpace = CGColorSpaceCreateDeviceGray()
+        let width = image.size.width
+        let height = image.size.height
+
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.none.rawValue)
+
+        let context = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
+        context?.draw(image.cgImage!, in: imageRect)
+        let imageRef = context!.makeImage()
+
+        let newImage = UIImage(cgImage: imageRef!)
+
+        return newImage
+    }
+}

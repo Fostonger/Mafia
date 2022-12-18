@@ -18,9 +18,10 @@ class HomeCoordinator: UINavigationController {
         setViewControllers([homeView], animated: true)
     }
     
-    static func make(user: User, client: APIClient) -> HomeCoordinator {
-        let model = HomeModel(client: client)
+    static func make(user: User) -> HomeCoordinator {
+        let model = HomeModel()
         let coordinator = HomeCoordinator(user: user, model: model)
+        return coordinator
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,8 +42,8 @@ extension HomeCoordinator: LobbiesCoordinator {
             }
             switch result {
             case .success(let gameId):
-                break
-                self.present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: <#T##Bool#>)
+                let gameScreen = self.openGameScreen(gameId: gameId)
+                self.present(gameScreen, animated: true)
             case .failure(let error):
                 self.presentAlert(title: "Не удалось подключиться к лобби", message: error.localizedDescription)
             }
@@ -50,6 +51,28 @@ extension HomeCoordinator: LobbiesCoordinator {
     }
     
     func createLobby() {
-        
+        URLSession.shared.request(
+            apiRequest: .createLobby(userId: user.id),
+            expecting: JustString.self
+        ) { result in
+            switch result {
+            case .failure(let error):
+                print("error: \(error.localizedDescription)")
+            case .success(let srting):
+                print("success \(srting)")
+            }
+        }
+        let gameScreen = openGameScreen(gameId: 12)
+        gameScreen.modalPresentationStyle = .fullScreen
+        present(gameScreen, animated: true)
     }
+    
+    func openGameScreen(gameId: GameID) -> GameCoordinator {
+        let coordinator = GameCoordinator.make(user: user, gameId: gameId)
+        return coordinator
+    }
+}
+
+struct JustString: Codable {
+    let hello: String
 }

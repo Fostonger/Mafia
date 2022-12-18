@@ -10,11 +10,9 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    let keyChainManager = MafiaKeyChain()
-    let client = APIClient()
     
     func openHomeView(with user: User) {
-        let coorinator = HomeCoordinator.make(user: user, client: client)
+        let coorinator = HomeCoordinator.make(user: user)
         setRootViewController(coorinator)
     }
 
@@ -33,10 +31,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
-        let userHasLoggedIn = false // TODO: login logic
-        let vc = UIStoryboard(name: "Main", bundle: nil)
-            .instantiateViewController(identifier: userHasLoggedIn ?
-                                       "HomeScreen" : "LoginViewController")
+        let vc: UIViewController
+        if let savedUser = UserDefaults.standard.object(forKey: "User") as? User {
+            vc = HomeCoordinator.make(user: savedUser)
+        } else {
+            vc = UIStoryboard(name: "Main", bundle: nil)
+                .instantiateViewController(identifier: "LoginViewController")
+        }
+        
         self.window!.rootViewController = vc
         self.window!.makeKeyAndVisible()
     }

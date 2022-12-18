@@ -7,10 +7,9 @@ protocol LobbyNetworkModel {
 }
 
 class HomeModel: LobbyNetworkModel {
-    let client: APIClient
-    
-    init(client: APIClient) {
-        self.client = client
+
+    init() {
+        
     }
     
     func joinLobby(with code: String, completion: @escaping(Result<GameID, Error>) -> ()) {

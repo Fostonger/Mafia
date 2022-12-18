@@ -89,6 +89,7 @@ class HomeViewController: UIViewController {
     
     private func setupButtons() {
         enterGameButton.addTarget(self, action: #selector(enterGameButtonTapped), for: .touchUpInside)
+        createLobbyButton.addTarget(self, action: #selector(createLobbyButtonTapped), for: .touchUpInside)
     }
     
     @objc func enterGameButtonTapped() {
@@ -96,5 +97,12 @@ class HomeViewController: UIViewController {
             return
         }
         coordinator.openEnterCodeView()
+    }
+    
+    @objc func createLobbyButtonTapped() {
+        guard let coordinator = navigationController as? LobbiesCoordinator else {
+            return
+        }
+        coordinator.createLobby()
     }
 }

@@ -10,6 +10,8 @@
 		0523462628FF908B004198CD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523462528FF908A004198CD /* LoginViewController.swift */; };
 		0523462A28FF9259004198CD /* LoginCredentialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523462928FF9259004198CD /* LoginCredentialsViewController.swift */; };
 		0523462F28FF9A97004198CD /* UIViewController+ParentImplementing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523462E28FF9A97004198CD /* UIViewController+ParentImplementing.swift */; };
+		052BAF3C294F479F00928B25 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052BAF3B294F479F00928B25 /* Dictionary.swift */; };
+		052BAF3E294F666A00928B25 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052BAF3D294F666A00928B25 /* RegisterViewController.swift */; };
 		05430E28293A67CC009EF22C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05430E27293A67CC009EF22C /* HomeViewController.swift */; };
 		05430E34293AADE6009EF22C /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05430E33293AADE6009EF22C /* HomeCoordinator.swift */; };
 		05430E38293AB237009EF22C /* EnterCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05430E37293AB237009EF22C /* EnterCodeViewController.swift */; };
@@ -27,6 +29,9 @@
 		05BCB800293CFC5D009EC0F4 /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BCB7FF293CFC5D009EC0F4 /* GameCoordinator.swift */; };
 		05BCB803293D053D009EC0F4 /* PlayDeskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BCB802293D053D009EC0F4 /* PlayDeskViewController.swift */; };
 		05BCB80F293D1DAC009EC0F4 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BCB80E293D1DAC009EC0F4 /* GameModel.swift */; };
+		05D76349294DFF57003AAD62 /* MafiaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D76348294DFF57003AAD62 /* MafiaAPI.swift */; };
+		05D76358294E32C8003AAD62 /* PlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D76357294E32C8003AAD62 /* PlayerCollectionViewCell.swift */; };
+		05D7635B294E4BF2003AAD62 /* CoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D7635A294E4BF2003AAD62 /* CoverViewController.swift */; };
 		05EEA070292E7EC300E68DFE /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EEA06F292E7EC300E68DFE /* KeyChain.swift */; };
 		05F4C53E290280B800286D6F /* AsyncState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4C53D290280B800286D6F /* AsyncState.swift */; };
 		05F4C540290280F300286D6F /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4C53F290280F300286D6F /* Notifier.swift */; };
@@ -61,6 +66,8 @@
 		0523462528FF908A004198CD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0523462928FF9259004198CD /* LoginCredentialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentialsViewController.swift; sourceTree = "<group>"; };
 		0523462E28FF9A97004198CD /* UIViewController+ParentImplementing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ParentImplementing.swift"; sourceTree = "<group>"; };
+		052BAF3B294F479F00928B25 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		052BAF3D294F666A00928B25 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		05430E27293A67CC009EF22C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		05430E33293AADE6009EF22C /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		05430E37293AB237009EF22C /* EnterCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCodeViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +90,9 @@
 		05BCB7FF293CFC5D009EC0F4 /* GameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
 		05BCB802293D053D009EC0F4 /* PlayDeskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayDeskViewController.swift; sourceTree = "<group>"; };
 		05BCB80E293D1DAC009EC0F4 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		05D76348294DFF57003AAD62 /* MafiaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MafiaAPI.swift; sourceTree = "<group>"; };
+		05D76357294E32C8003AAD62 /* PlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCollectionViewCell.swift; sourceTree = "<group>"; };
+		05D7635A294E4BF2003AAD62 /* CoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewController.swift; sourceTree = "<group>"; };
 		05EEA06F292E7EC300E68DFE /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		05F4C53D290280B800286D6F /* AsyncState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncState.swift; sourceTree = "<group>"; };
 		05F4C53F290280F300286D6F /* Notifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
@@ -133,6 +143,7 @@
 			children = (
 				0523462528FF908A004198CD /* LoginViewController.swift */,
 				0523462928FF9259004198CD /* LoginCredentialsViewController.swift */,
+				052BAF3D294F666A00928B25 /* RegisterViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -141,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				05F4C54129029E3700286D6F /* URLSession+Extension.swift */,
+				05D76348294DFF57003AAD62 /* MafiaAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -152,6 +164,7 @@
 				05F4C5432906AE2200286D6F /* CGColor+UIColor.swift */,
 				05F4C5472906B70100286D6F /* CollectionsExtension.swift */,
 				05430E3B293B9054009EF22C /* UIViewController+AlertView.swift */,
+				052BAF3B294F479F00928B25 /* Dictionary.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -264,9 +277,27 @@
 		05BCB801293D051F009EC0F4 /* PlayDesk */ = {
 			isa = PBXGroup;
 			children = (
+				05D76359294E4BCA003AAD62 /* Cover */,
+				05D76356294E32A5003AAD62 /* PlayerCell */,
 				05BCB802293D053D009EC0F4 /* PlayDeskViewController.swift */,
 			);
 			path = PlayDesk;
+			sourceTree = "<group>";
+		};
+		05D76356294E32A5003AAD62 /* PlayerCell */ = {
+			isa = PBXGroup;
+			children = (
+				05D76357294E32C8003AAD62 /* PlayerCollectionViewCell.swift */,
+			);
+			path = PlayerCell;
+			sourceTree = "<group>";
+		};
+		05D76359294E4BCA003AAD62 /* Cover */ = {
+			isa = PBXGroup;
+			children = (
+				05D7635A294E4BF2003AAD62 /* CoverViewController.swift */,
+			);
+			path = Cover;
 			sourceTree = "<group>";
 		};
 		05F4C53C290280A800286D6F /* Common */ = {
@@ -560,9 +591,14 @@
 				05F4C5462906B18D00286D6F /* Functional.swift in Sources */,
 				05BCB803293D053D009EC0F4 /* PlayDeskViewController.swift in Sources */,
 				05BCB7FC293CE0F1009EC0F4 /* User.swift in Sources */,
+				05D7635B294E4BF2003AAD62 /* CoverViewController.swift in Sources */,
 				0523462A28FF9259004198CD /* LoginCredentialsViewController.swift in Sources */,
 				05F4C54229029E3700286D6F /* URLSession+Extension.swift in Sources */,
+				052BAF3C294F479F00928B25 /* Dictionary.swift in Sources */,
 				05EEA070292E7EC300E68DFE /* KeyChain.swift in Sources */,
+				052BAF3E294F666A00928B25 /* RegisterViewController.swift in Sources */,
+				05D76358294E32C8003AAD62 /* PlayerCollectionViewCell.swift in Sources */,
+				05D76349294DFF57003AAD62 /* MafiaAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
