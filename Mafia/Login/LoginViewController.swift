@@ -30,8 +30,6 @@ class LoginViewModel {
                 completion(.failure(failure))
             }
         }
-        let user = User(id: 0, nickname: "Fost")
-        delegate.openHomeView(with: user)
     }
 }
 
