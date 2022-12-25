@@ -1,17 +1,17 @@
 //
-//  EnterCodeViewController.swift
+//  CreateLobbyViewController.swift
 //  Mafia
 //
-//  Created by Булат Мусин on 03.12.2022.
+//  Created by Булат Мусин on 22.12.2022.
 //
 
 import UIKit
 
-class EnterCodeViewController: UIViewController {
+class CreateLobbyViewController: UIViewController {
     private let codeTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
-        textField.placeholder = "Lobby Code"
+        textField.placeholder = "Amount of players"
         textField.backgroundColor = .secondarySystemBackground
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
@@ -20,9 +20,9 @@ class EnterCodeViewController: UIViewController {
         return textField
     }()
     
-    private let joinButton: UIButton = {
+    private let createButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Join", for: .normal)
+        button.setTitle("Create", for: .normal)
         button.layer.borderColor = UIColor.systemGray.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 8
@@ -51,7 +51,7 @@ class EnterCodeViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubview(stackView)
         stackView.addArrangedSubview(codeTextField)
-        stackView.addArrangedSubview(joinButton)
+        stackView.addArrangedSubview(createButton)
         codeTextField.delegate = self
     }
     
@@ -65,30 +65,31 @@ class EnterCodeViewController: UIViewController {
             make.height.equalTo(40)
             make.width.equalTo(200)
         }
-        joinButton.snp.makeConstraints { make in
+        createButton.snp.makeConstraints { make in
             make.height.equalTo(40)
             make.width.equalTo(90)
         }
     }
     
     private func setupButtons() {
-        joinButton.addTarget(self, action: #selector(joinByCode), for: .touchUpInside)
+        createButton.addTarget(self, action: #selector(createLobby), for: .touchUpInside)
     }
     
-    @objc func joinByCode() {
+    @objc func createLobby() {
         guard let coordinator = navigationController as? LobbiesCoordinator,
-              let codeString = codeTextField.text,
-              let code = Int(codeString) else {
+              let stringCode = codeTextField.text,
+              let code = Int(stringCode) else {
             return
         }
-        coordinator.joinLobby(with: code)
+        coordinator.createLobby(amountOfPlayers: code)
     }
 
 }
 
-extension EnterCodeViewController: UITextFieldDelegate {
+extension CreateLobbyViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        joinButton.isEnabled = (textField.text?.count ?? 0) + string.count - range.length > 0
+        createButton.isEnabled = (textField.text?.count ?? 0) + string.count - range.length > 0
         return true
     }
 }
+

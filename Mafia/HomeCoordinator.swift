@@ -2,8 +2,9 @@ import UIKit
 
 protocol LobbiesCoordinator {
     func openEnterCodeView()
-    func joinLobby(with code: String)
-    func createLobby()
+    func joinLobby(with code: Int)
+    func createLobby(amountOfPlayers: Int)
+    func openLobbyCreationView()
 }
 
 class HomeCoordinator: UINavigationController {
@@ -19,7 +20,7 @@ class HomeCoordinator: UINavigationController {
     }
     
     static func make(user: User) -> HomeCoordinator {
-        let model = HomeModel()
+        let model = HomeModel(userId: user.id)
         let coordinator = HomeCoordinator(user: user, model: model)
         return coordinator
     }
@@ -35,13 +36,35 @@ extension HomeCoordinator: LobbiesCoordinator {
         pushViewController(enterCodeViewController, animated: true)
     }
     
-    func joinLobby(with code: String) {
-        model.joinLobby(with: code) { [weak self] result in
+    func openLobbyCreationView() {
+        let lobbyCreationVC = CreateLobbyViewController()
+        pushViewController(lobbyCreationVC, animated: true)
+    }
+    
+    func joinLobby(with gameId: Int) {
+//        let coverVC = CoverViewController()
+//        coverVC.enqueue { [weak coverVC] in
+//            coverVC?.setTitle(title: "Ваша роль", message: Role.mafia.localizedName, withDuration: 2)
+//        }
+//        coverVC.enqueue { [weak coverVC] in
+//            coverVC?.setTitle(title: "Ход мафии", withDuration: 300)
+//        }
+//        coverVC.enqueue { [weak coverVC] in
+//            coverVC?.setTitle(title: "Произошел взлом жопы", withDuration: 300)
+//        }
+//        coverVC.modalPresentationStyle = .overFullScreen
+//        present(coverVC, animated: false)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak coverVC] in
+//            coverVC?.hidePresentingLabel()
+//        }
+        showHUD()
+        model.joinLobby(with: gameId) { [weak self] result in
             guard let self = self else {
                 return
             }
+            self.hideHUD()
             switch result {
-            case .success(let gameId):
+            case .success(_):
                 let gameScreen = self.openGameScreen(gameId: gameId)
                 self.present(gameScreen, animated: true)
             case .failure(let error):
@@ -50,29 +73,27 @@ extension HomeCoordinator: LobbiesCoordinator {
         }
     }
     
-    func createLobby() {
-        URLSession.shared.request(
-            apiRequest: .createLobby(userId: user.id),
-            expecting: JustString.self
-        ) { result in
+    func createLobby(amountOfPlayers: Int) {
+        URLSession.shared.requestOneElement(
+            apiRequest: .createLobby(amountOfPlayers: amountOfPlayers, userId: user.id),
+            expecting: Int.self
+        ) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            self.hideHUD()
             switch result {
             case .failure(let error):
                 print("error: \(error.localizedDescription)")
-            case .success(let srting):
-                print("success \(srting)")
+            case .success(let gameId):
+                self.joinLobby(with: gameId)
             }
         }
-        let gameScreen = openGameScreen(gameId: 12)
-        gameScreen.modalPresentationStyle = .fullScreen
-        present(gameScreen, animated: true)
     }
     
     func openGameScreen(gameId: GameID) -> GameCoordinator {
         let coordinator = GameCoordinator.make(user: user, gameId: gameId)
+        coordinator.modalPresentationStyle = .fullScreen
         return coordinator
     }
-}
-
-struct JustString: Codable {
-    let hello: String
 }

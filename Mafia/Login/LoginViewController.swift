@@ -18,13 +18,14 @@ class LoginViewModel {
     }
     
     func logIn(with credentials: LoginCredentials, completion: @escaping(Result<User, Error>) -> Void) {
-        URLSession.shared.request(
-            apiRequest: .register(username: credentials.nickname, password: credentials.password),
-            expecting: User.self
+        URLSession.shared.requestOneElement(
+            apiRequest: .login(username: credentials.nickname, password: credentials.password),
+            expecting: Int.self
         ) { [weak self] result in
             switch result {
-            case .success(let user):
-                UserDefaults.standard.set(user, forKey: "User")
+            case .success(let userId):
+                let user = User(id: userId, nickname: credentials.nickname)
+                try! MafiaUserDefaults.standard.set(user, forKey: "User")
                 self?.delegate.openHomeView(with: user)
             case .failure(let failure):
                 completion(.failure(failure))
@@ -159,6 +160,7 @@ class LoginViewController: UIViewController {
     
     private func setupButtons() {
         loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
+        registerButton.addTarget(self, action: #selector(registerAction), for: .touchUpInside)
     }
     
     @objc private func loginAction() {

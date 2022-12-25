@@ -103,6 +103,6 @@ class HomeViewController: UIViewController {
         guard let coordinator = navigationController as? LobbiesCoordinator else {
             return
         }
-        coordinator.createLobby()
+        coordinator.openLobbyCreationView()
     }
 }

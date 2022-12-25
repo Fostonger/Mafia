@@ -11,12 +11,14 @@ class RegisterViewModel {
     }
     
     func register(with credentials: LoginCredentials, completion: @escaping(Result<User, Error>) -> Void) {
-        URLSession.shared.request(
+        URLSession.shared.requestOneElement(
             apiRequest: .register(username: credentials.nickname, password: credentials.password),
-            expecting: User.self
+            expecting: Int.self
         ) { [weak self] result in
             switch result {
-            case .success(let user):
+            case .success(let userId):
+                let user = User(id: userId, nickname: credentials.nickname)
+                try! MafiaUserDefaults.standard.set(user, forKey: "User")
                 self?.delegate.openHomeView(with: user)
             case .failure(let failure):
                 completion(.failure(failure))
@@ -85,6 +87,7 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         nicknameTextField.delegate = self
         passwordTextField.delegate = self
+        view.backgroundColor = .systemBackground
         setupViews()
         setupConstraints()
         setupButtons()

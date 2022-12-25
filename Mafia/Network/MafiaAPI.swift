@@ -5,12 +5,13 @@ fileprivate let host = "http://172.20.10.3:8000"
 enum MafiaAPI {
     case login(username: String, password: String)
     case register(username: String, password: String)
-    case createLobby(userId: UserId)
-    case joinLobby(userId: UserId, code: String)
+    case createLobby(amountOfPlayers: Int, userId: UserId)
+    case joinLobby(userId: UserId, code: Int)
     case changeLobbySettings(userId: UserId)
     case getPlayersStatuses(gameId: GameID)
-    case chooseVictim(token: String, victimId: UserId, gameStage: GameStage)
+    case chooseVictim(gameId: GameID, victimId: UserId, userId: UserId?)
     case getGameStage(gameId: GameID)
+    case getRole(lobbyId: GameID, userId: UserId)
 }
 
 extension MafiaAPI {
@@ -23,13 +24,12 @@ extension MafiaAPI {
         request.httpMethod = method
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.timeoutInterval = 600
         return request
     }
     
     private var method: String {
         switch self {
-        case .changeLobbySettings, .chooseVictim:
-            return "POST"
         default:
             return "GET"
         }
@@ -38,21 +38,23 @@ extension MafiaAPI {
     private var path: String {
         switch self {
         case .login:
-            return ""
+            return "/auth/"
         case .register:
-            return ""
+            return "/reg/"
         case .createLobby:
-            return ""
+            return "/create_game/"
         case .joinLobby:
-            return "/gamelogic"
+            return "/connect/"
         case .changeLobbySettings:
             return ""
         case .getPlayersStatuses:
-            return ""
+            return "/get_statuses"
         case .chooseVictim:
-            return ""
+            return "/change_stage/"
         case .getGameStage:
-            return ""
+            return "/change_stage/"
+        case .getRole:
+            return "/get_role/"
         }
     }
     
@@ -68,14 +70,15 @@ extension MafiaAPI {
                 URLQueryItem(name:"username", value: username),
                 URLQueryItem(name:"password", value: password)
             ]
-        case .createLobby(let userId):
+        case .createLobby(let playersAmount, let userId):
             return [
-                URLQueryItem(name:"userId", value: String(userId))
+                URLQueryItem(name:"number", value: String(playersAmount)),
+                URLQueryItem(name:"myid", value: String(userId))
             ]
         case .joinLobby(let userId, let code):
             return [
-                URLQueryItem(name:"userId", value: String(userId)),
-                URLQueryItem(name:"code", value: code)
+                URLQueryItem(name:"myid", value: String(userId)),
+                URLQueryItem(name:"roomid", value: String(code))
             ]
         case .changeLobbySettings(let userId):
             return [
@@ -85,15 +88,23 @@ extension MafiaAPI {
             return [
                 URLQueryItem(name:"gameId", value: String(gameId))
             ]
-        case .chooseVictim(let token, let victimId, let gameStage):
-            return [
-                URLQueryItem(name:"token", value: token),
-                URLQueryItem(name:"victimId", value: String(victimId)),
-                URLQueryItem(name:"gameStage", value: String(gameStage.rawValue))
+        case .chooseVictim(let gameId, let victimId, let userId):
+            var params = [
+                URLQueryItem(name:"roomid", value: String(gameId)),
+                URLQueryItem(name:"userid", value: String(victimId))
             ]
+            if let userId = userId {
+                params.append(URLQueryItem(name:"myid", value: String(userId)))
+            }
+            return params
         case .getGameStage(let gameId):
             return [
-                URLQueryItem(name:"gameId", value: String(gameId))
+                URLQueryItem(name:"roomid", value: String(gameId))
+            ]
+        case .getRole(lobbyId: let gameId, userId: let userId):
+            return [
+                URLQueryItem(name:"myid", value: String(userId)),
+                URLQueryItem(name:"roomid", value: String(gameId))
             ]
         }
     }

@@ -32,11 +32,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
         let vc: UIViewController
-        if let savedUser = UserDefaults.standard.object(forKey: "User") as? User {
+        if let savedUser = try? MafiaUserDefaults.standard.object(forKey: "User", type: User.self) {
             vc = HomeCoordinator.make(user: savedUser)
         } else {
             vc = UIStoryboard(name: "Main", bundle: nil)
-                .instantiateViewController(identifier: "LoginViewController")
+                .instantiateViewController(identifier: "LoginNavigationController")
         }
         
         self.window!.rootViewController = vc

@@ -3,7 +3,22 @@ import UIKit
 class PlayDeskViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     let model: GameModel
     
-    private let coverVC = CoverViewController()
+    fileprivate var coverVCBaseProperty: CoverViewController? =  {
+        let controller = CoverViewController()
+        controller.modalPresentationStyle = .overFullScreen
+        return controller
+    }()
+    
+    private var coverVC: CoverViewController {
+        get {
+            guard let coverVC = self.coverVCBaseProperty else {
+                coverVCBaseProperty = CoverViewController()
+                coverVCBaseProperty!.modalPresentationStyle = .overFullScreen
+                return coverVCBaseProperty!
+            }
+            return coverVC
+        }
+    }
     
     init(model: GameModel) {
         self.model = model
@@ -23,8 +38,11 @@ class PlayDeskViewController: UICollectionViewController, UICollectionViewDelega
     
     private func handle(update: GameModel.State.Update) {
         switch update {
-        case .usersStateUpdate(_, _):
+        case .usersStateUpdate(_, _, let comissarIsRight):
             collectionView.reloadData()
+            coverVC.enqueue { [weak coverVC] in
+                coverVC?.setTitle(title: "Комиссар сделал \(comissarIsRight ? "правильный" : "неправильный") выбор")
+            }
         case .gameStageChange(let stage):
             stage |> newGameStageHandling
         case .setRole(let role):
@@ -40,20 +58,27 @@ class PlayDeskViewController: UICollectionViewController, UICollectionViewDelega
     }
     
     private func presentRoleSetting(role: Role) {
-        
+        coverVC.enqueue { [weak coverVC] in
+            coverVC?.setTitle(title: "Ваша роль", message: role.localizedName, withDuration: 1)
+        }
+        if presentedViewController == nil {
+            present(coverVC, animated: false)
+        }
     }
     
     private func newGameStageHandling(stage: GameStage) {
         let intStage = stage.rawValue
         let intRole = model.current.role?.rawValue ?? 0
-        let isAsleep = !(intStage == 0 || intRole == intStage)
+        let isAsleep = !(intStage < 1 || intRole == intStage)
         collectionView.isUserInteractionEnabled = !isAsleep
+        coverVC.enqueue { [weak coverVC] in
+            coverVC?.setTitle(title: stage.localizedStage)
+        }
+        coverVC.hidePresentingLabel() // Скрываем лейбл прошлого хода
         if isAsleep {
-            coverVC.setTitle(text: "Город спит")
-            navigationController?.modalPresentationStyle = .overCurrentContext
-            navigationController?.present(coverVC, animated: true)
-        } else if navigationController?.presentedViewController != self {
-            navigationController?.dismiss(animated: true)
+            model.getGameStage()
+        } else {
+            coverVC.hidePresentingLabel() // Скрываем лейбл нынешнего хода если человеку нужно сходить
         }
     }
     
@@ -90,6 +115,9 @@ class PlayDeskViewController: UICollectionViewController, UICollectionViewDelega
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        
+        guard indexPath.section == 0 else { return }
+        let victimId = model.current.aliveUsers[indexPath.row].id
+        model.makeAction(victimId: victimId)
+        collectionView.isUserInteractionEnabled = false
     }
 }

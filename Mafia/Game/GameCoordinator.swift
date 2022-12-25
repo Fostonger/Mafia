@@ -12,11 +12,25 @@ class GameCoordinator: UINavigationController {
         super.init(nibName: nil, bundle: nil)
         let deskVC = PlayDeskViewController(model: model)
         setViewControllers([deskVC], animated: true)
+        model.notifier.subscribeWeak(self, type(of: self).process)
     }
     
     static func make(user: User, gameId: GameID) -> GameCoordinator {
-        let model = GameModel(gameId: gameId)
+        let model = GameModel(gameId: gameId, userId: user.id)
         return GameCoordinator(user: user, gameId: gameId, model: model)
+    }
+    
+    private func process(update: GameModel.State.Update) {
+        switch update {
+        case .usersStateUpdate:
+            break
+        case .gameStageChange(stage: let stage):
+            break
+        case .setRole(role: let role):
+            break
+        case .error(_):
+            break
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
