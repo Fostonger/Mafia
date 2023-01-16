@@ -5,11 +5,12 @@ protocol LobbiesCoordinator {
     func joinLobby(with code: Int)
     func createLobby(amountOfPlayers: Int)
     func openLobbyCreationView()
+    func getAchievements(completion: @escaping(Result<Int, Error>) -> Void)
 }
 
 class HomeCoordinator: UINavigationController {
     let model: HomeModel
-    let user: User
+    var user: User
     
     private init(user: User, model: HomeModel) {
         self.user = user
@@ -31,6 +32,10 @@ class HomeCoordinator: UINavigationController {
 }
 
 extension HomeCoordinator: LobbiesCoordinator {
+    func getAchievements(completion: @escaping (Result<Int, Error>) -> Void) {
+        model.loadAchievements(of: user.id, completion: completion)
+    }
+    
     func openEnterCodeView() {
         let enterCodeViewController = EnterCodeViewController()
         pushViewController(enterCodeViewController, animated: true)
@@ -42,21 +47,6 @@ extension HomeCoordinator: LobbiesCoordinator {
     }
     
     func joinLobby(with gameId: Int) {
-//        let coverVC = CoverViewController()
-//        coverVC.enqueue { [weak coverVC] in
-//            coverVC?.setTitle(title: "Ваша роль", message: Role.mafia.localizedName, withDuration: 2)
-//        }
-//        coverVC.enqueue { [weak coverVC] in
-//            coverVC?.setTitle(title: "Ход мафии", withDuration: 300)
-//        }
-//        coverVC.enqueue { [weak coverVC] in
-//            coverVC?.setTitle(title: "Произошел взлом жопы", withDuration: 300)
-//        }
-//        coverVC.modalPresentationStyle = .overFullScreen
-//        present(coverVC, animated: false)
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak coverVC] in
-//            coverVC?.hidePresentingLabel()
-//        }
         showHUD()
         model.joinLobby(with: gameId) { [weak self] result in
             guard let self = self else {
@@ -87,6 +77,7 @@ extension HomeCoordinator: LobbiesCoordinator {
                 print("error: \(error.localizedDescription)")
             case .success(let gameId):
                 self.joinLobby(with: gameId)
+                self.user.isAdmin = true
             }
         }
     }

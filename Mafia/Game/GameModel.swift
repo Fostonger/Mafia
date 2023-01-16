@@ -7,6 +7,8 @@ enum GameStage: Int {
     case mafia = 1
     case doctor
     case comissar
+    case mafiaWon
+    case citizenWon
     
     var localizedStage: String {
         switch self {
@@ -20,6 +22,10 @@ enum GameStage: Int {
             return "Ход комиссара"
         case .pending:
             return "Ожидаем игроков"
+        case .mafiaWon:
+            return "Победила мафия"
+        case .citizenWon:
+            return "Победили мирные жители"
         }
     }
 }
@@ -52,11 +58,11 @@ private struct UsersStatus: Codable {
 
 class GameModel: AsyncState<GameModel.State, GameModel.State.Update> {
     let gameId: GameID
-    let userId: UserId
+    let user: User
     
-    init(gameId: GameID, userId: UserId) {
+    init(gameId: GameID, user: User) {
         self.gameId = gameId
-        self.userId = userId
+        self.user = user
         
         super.init(
             state: .init(aliveUsers: [], deadUsers: [], stage: .pending, comissarIsRight: false, role: nil),
@@ -66,7 +72,7 @@ class GameModel: AsyncState<GameModel.State, GameModel.State.Update> {
         }
         
         URLSession.shared.requestOneElement(
-            apiRequest: .getRole(lobbyId: gameId, userId: userId),
+            apiRequest: .getRole(lobbyId: gameId, userId: user.id),
             expecting: Int.self
         ) { [weak self] result in
             switch result {
@@ -84,7 +90,8 @@ class GameModel: AsyncState<GameModel.State, GameModel.State.Update> {
     
     private func process(update: State.Update, state: State) -> (State, State.Update) {
         let newState: State
-        switch update {
+        var newUpdate = update
+        switch newUpdate {
         case .usersStateUpdate(let alive, let dead, let comissarIsCorrect):
             newState = State(
                 aliveUsers: alive,
@@ -92,6 +99,13 @@ class GameModel: AsyncState<GameModel.State, GameModel.State.Update> {
                 stage: current.stage,
                 comissarIsRight: comissarIsCorrect,
                 role: current.role
+            )
+            newUpdate = State.Update.usersStateUpdate(
+                alive: alive,
+                dead: dead.filter({ user in
+                    !current.deadUsers.contains(where: { $0.id == user.id })
+                }),
+                comissarIsCorrect: comissarIsCorrect
             )
         case .gameStageChange(let stage):
             newState = State(
@@ -112,7 +126,7 @@ class GameModel: AsyncState<GameModel.State, GameModel.State.Update> {
                 role: role
             )
         }
-        return (newState, update)
+        return (newState, newUpdate)
     }
 }
 
@@ -122,12 +136,13 @@ extension GameModel {
             apiRequest: .chooseVictim(
                 gameId: gameId,
                 victimId: victimId,
-                userId: current.stage != .townAwaken ? userId : nil
+                userId: current.stage != .townAwaken ? user.id : nil
             ),
             expecting: Int.self
         ) { [weak self] result in
             switch result {
             case .success(let stage):
+                if GameStage(rawValue: stage) == .townAwaken || GameStage(rawValue: stage) == .mafia { self?.getUsersStatus() }
                 self?.perform(update: .gameStageChange(stage: GameStage(rawValue: stage) ?? .townAwaken))
             case .failure(let error):
                 self?.perform(update: .error(error))
@@ -142,7 +157,7 @@ extension GameModel {
         ) { [weak self] result in
             switch result {
             case .success(let stage):
-                if GameStage(rawValue: stage) == .townAwaken { self?.getUsersStatus() }
+                if GameStage(rawValue: stage) == .townAwaken || GameStage(rawValue: stage) == .mafia { self?.getUsersStatus() }
                 self?.perform(update: .gameStageChange(stage: GameStage(rawValue: stage) ?? .townAwaken))
             case .failure(let error):
                 self?.perform(update: .error(error))
@@ -151,7 +166,7 @@ extension GameModel {
     }
     
     func getUsersStatus() {
-        URLSession.shared.requestOneElement(
+        URLSession.shared.request(
             apiRequest: .getPlayersStatuses(gameId: gameId),
             expecting: UsersStatus.self
         ) { [weak self] result in
@@ -187,22 +202,5 @@ extension GameModel.State {
         case gameStageChange(stage: GameStage)
         case setRole(role: Role)
         case error(Error)
-    }
-}
-
-extension GameModel {
-    func longpoll() {
-        URLSession.shared.request(apiRequest: .getGameStage(gameId: gameId),
-                                  expecting: Int.self) { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let stageNumber):
-                    self?.perform(update: .gameStageChange(stage: GameStage(rawValue: stageNumber)!))
-                    self?.longpoll()
-                case .failure(let failure):
-                    self?.perform(update: .error(failure))
-                }
-            }
-        }
     }
 }

@@ -16,7 +16,7 @@ class GameCoordinator: UINavigationController {
     }
     
     static func make(user: User, gameId: GameID) -> GameCoordinator {
-        let model = GameModel(gameId: gameId, userId: user.id)
+        let model = GameModel(gameId: gameId, user: user)
         return GameCoordinator(user: user, gameId: gameId, model: model)
     }
     

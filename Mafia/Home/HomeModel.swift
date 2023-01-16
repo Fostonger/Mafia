@@ -26,4 +26,12 @@ class HomeModel: LobbyNetworkModel {
             }
         }
     }
+    
+    func loadAchievements(of userId: UserId, completion: @escaping(Result<Int, Error>) -> Void) {
+        URLSession.shared.requestOneElement(
+            apiRequest: .getAchievements(userId: userId),
+            expecting: Int.self,
+            completion: completion
+        )
+    }
 }

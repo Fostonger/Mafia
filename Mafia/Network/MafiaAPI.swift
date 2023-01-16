@@ -12,6 +12,7 @@ enum MafiaAPI {
     case chooseVictim(gameId: GameID, victimId: UserId, userId: UserId?)
     case getGameStage(gameId: GameID)
     case getRole(lobbyId: GameID, userId: UserId)
+    case getAchievements(userId: UserId)
 }
 
 extension MafiaAPI {
@@ -48,13 +49,15 @@ extension MafiaAPI {
         case .changeLobbySettings:
             return ""
         case .getPlayersStatuses:
-            return "/get_statuses"
+            return "/get_users_info/"
         case .chooseVictim:
             return "/change_stage/"
         case .getGameStage:
             return "/change_stage/"
         case .getRole:
             return "/get_role/"
+        case .getAchievements:
+            return "/get_achievements/"
         }
     }
     
@@ -86,7 +89,7 @@ extension MafiaAPI {
             ]
         case .getPlayersStatuses(let gameId):
             return [
-                URLQueryItem(name:"gameId", value: String(gameId))
+                URLQueryItem(name:"roomid", value: String(gameId))
             ]
         case .chooseVictim(let gameId, let victimId, let userId):
             var params = [
@@ -105,6 +108,10 @@ extension MafiaAPI {
             return [
                 URLQueryItem(name:"myid", value: String(userId)),
                 URLQueryItem(name:"roomid", value: String(gameId))
+            ]
+        case .getAchievements(userId: let userId):
+            return [
+                URLQueryItem(name:"userid", value: String(userId))
             ]
         }
     }

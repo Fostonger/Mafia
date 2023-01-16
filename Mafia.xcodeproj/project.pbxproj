@@ -47,6 +47,11 @@
 		05F4C5442906AE2200286D6F /* CGColor+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4C5432906AE2200286D6F /* CGColor+UIColor.swift */; };
 		05F4C5462906B18D00286D6F /* Functional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4C5452906B18D00286D6F /* Functional.swift */; };
 		05F4C5482906B70100286D6F /* CollectionsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4C5472906B70100286D6F /* CollectionsExtension.swift */; };
+		05FC61F3295940B7004BC829 /* Podkova-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 05FC61EE295940B6004BC829 /* Podkova-SemiBold.ttf */; };
+		05FC61F5295940B7004BC829 /* Podkova-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 05FC61F0295940B7004BC829 /* Podkova-Regular.ttf */; };
+		05FC61F72959419F004BC829 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FC61F62959419F004BC829 /* Fonts.swift */; };
+		05FC6203295946C7004BC829 /* MafiaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FC6202295946C7004BC829 /* MafiaButton.swift */; };
+		05FC620529594D3B004BC829 /* String+Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FC620429594D3B004BC829 /* String+Hash.swift */; };
 		0825F30C37DBCBD8F5FB17DD /* Pods_Mafia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A4A114FFCFD550986DE997 /* Pods_Mafia.framework */; };
 		9C5151E48D651B7DE7744314 /* Pods_MafiaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 256FAFCBCF57BCF5141E7C3D /* Pods_MafiaTests.framework */; };
 		E8CF526D5E3CBBC9A77E8477 /* Pods_Mafia_MafiaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A228C4169945046C33D5C36B /* Pods_Mafia_MafiaUITests.framework */; };
@@ -116,6 +121,11 @@
 		05F4C5432906AE2200286D6F /* CGColor+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGColor+UIColor.swift"; sourceTree = "<group>"; };
 		05F4C5452906B18D00286D6F /* Functional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functional.swift; sourceTree = "<group>"; };
 		05F4C5472906B70100286D6F /* CollectionsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsExtension.swift; sourceTree = "<group>"; };
+		05FC61EE295940B6004BC829 /* Podkova-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Podkova-SemiBold.ttf"; sourceTree = "<group>"; };
+		05FC61F0295940B7004BC829 /* Podkova-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Podkova-Regular.ttf"; sourceTree = "<group>"; };
+		05FC61F62959419F004BC829 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		05FC6202295946C7004BC829 /* MafiaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MafiaButton.swift; sourceTree = "<group>"; };
+		05FC620429594D3B004BC829 /* String+Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Hash.swift"; sourceTree = "<group>"; };
 		256FAFCBCF57BCF5141E7C3D /* Pods_MafiaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MafiaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35289EAE3026555892D1B825 /* Pods-MafiaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MafiaTests.debug.xcconfig"; path = "Target Support Files/Pods-MafiaTests/Pods-MafiaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		57C5A150EF947E83372A0BE9 /* Pods-Mafia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mafia.release.xcconfig"; path = "Target Support Files/Pods-Mafia/Pods-Mafia.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +191,7 @@
 				05430E3B293B9054009EF22C /* UIViewController+AlertView.swift */,
 				052BAF3B294F479F00928B25 /* Dictionary.swift */,
 				052BAF582951CA8C00928B25 /* NavigationController+HUD.swift */,
+				05FC620429594D3B004BC829 /* String+Hash.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -258,6 +269,7 @@
 		0567E91D28FF8CD6001F774A /* Mafia */ = {
 			isa = PBXGroup;
 			children = (
+				05FC61EB29594099004BC829 /* Font */,
 				05BCB7FD293CF1CB009EC0F4 /* Mafia.entitlements */,
 				05BCB7FE293CFC4D009EC0F4 /* Game */,
 				05BCB7FA293CE0DE009EC0F4 /* UserData */,
@@ -347,8 +359,19 @@
 				05F4C5452906B18D00286D6F /* Functional.swift */,
 				05EEA06F292E7EC300E68DFE /* MafiaUserDefaults.swift */,
 				051AA46529589C5100380116 /* Queue.swift */,
+				05FC6202295946C7004BC829 /* MafiaButton.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		05FC61EB29594099004BC829 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				05FC61F0295940B7004BC829 /* Podkova-Regular.ttf */,
+				05FC61EE295940B6004BC829 /* Podkova-SemiBold.ttf */,
+				05FC61F62959419F004BC829 /* Fonts.swift */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		0E24A8F9597AA865C31C03F4 /* Frameworks */ = {
@@ -483,6 +506,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05FC61F3295940B7004BC829 /* Podkova-SemiBold.ttf in Resources */,
+				05FC61F5295940B7004BC829 /* Podkova-Regular.ttf in Resources */,
 				0567E92B28FF8CDA001F774A /* LaunchScreen.storyboard in Resources */,
 				0567E92828FF8CDA001F774A /* Assets.xcassets in Resources */,
 				0567E92628FF8CD6001F774A /* Main.storyboard in Resources */,
@@ -615,10 +640,12 @@
 			files = (
 				052BAF51294F94BC00928B25 /* StrokeColorAnimation.swift in Sources */,
 				05430E38293AB237009EF22C /* EnterCodeViewController.swift in Sources */,
+				05FC620529594D3B004BC829 /* String+Hash.swift in Sources */,
 				05BCB800293CFC5D009EC0F4 /* GameCoordinator.swift in Sources */,
 				05F4C53E290280B800286D6F /* AsyncState.swift in Sources */,
 				05430E3C293B9054009EF22C /* UIViewController+AlertView.swift in Sources */,
 				052BAF592951CA8C00928B25 /* NavigationController+HUD.swift in Sources */,
+				05FC6203295946C7004BC829 /* MafiaButton.swift in Sources */,
 				05F4C5482906B70100286D6F /* CollectionsExtension.swift in Sources */,
 				052BAF52294F94BC00928B25 /* RotationAnimation.swift in Sources */,
 				053157A72954C4F70072496C /* CreateLobbyViewController.swift in Sources */,
@@ -634,6 +661,7 @@
 				0567E92128FF8CD6001F774A /* SceneDelegate.swift in Sources */,
 				05F4C5442906AE2200286D6F /* CGColor+UIColor.swift in Sources */,
 				05F4C5462906B18D00286D6F /* Functional.swift in Sources */,
+				05FC61F72959419F004BC829 /* Fonts.swift in Sources */,
 				05BCB803293D053D009EC0F4 /* PlayDeskViewController.swift in Sources */,
 				05BCB7FC293CE0F1009EC0F4 /* User.swift in Sources */,
 				05D7635B294E4BF2003AAD62 /* CoverViewController.swift in Sources */,
@@ -823,9 +851,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mafia/Mafia.entitlements;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K6SG3GJ9A3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mafia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -853,9 +882,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mafia/Mafia.entitlements;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K6SG3GJ9A3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mafia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -9,7 +9,7 @@ class PlayerCollectionViewCell: UICollectionViewCell {
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.font = .podkovaFont(size: 16, type: .regular)
         label.textAlignment = .center
         return label
     }()
@@ -24,7 +24,7 @@ class PlayerCollectionViewCell: UICollectionViewCell {
     }
     
     func setup(user: User, image: UIImage, isDead: Bool) {
-        nameLabel.text = user.nickname
+        nameLabel.text = user.username
         profileImage.image = image
         if isDead {
             drawCross()
@@ -48,20 +48,25 @@ class PlayerCollectionViewCell: UICollectionViewCell {
     }
     
     private func drawCross() {
-        if let image = profileImage.image {
-            profileImage.image = image |> convertToGrayScale
+        if var image = profileImage.image {
+            image = image |> convertToGrayScale
+            UIGraphicsBeginImageContext(image.size)
+            image.draw(at: CGPoint.zero)
+            let context = UIGraphicsGetCurrentContext()!
+
+            context.setLineWidth(4.0)
+            context.setStrokeColor(UIColor.red.cgColor)
+            context.move(to: CGPoint(x: 0, y: 0))
+            context.addLine(to: CGPoint(x: image.size.width, y: image.size.height))
+            context.strokePath()
+            context.move(to: CGPoint(x: 0, y: image.size.height))
+            context.addLine(to: CGPoint(x: image.size.width, y: 0))
+            context.strokePath()
+            let myImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            profileImage.image = myImage
         }
-        let path = UIBezierPath()
-        let maxHeight = profileImage.frame.height
-        let maxWidth = profileImage.frame.width
-        path.move(to: CGPoint(x: 0, y: 0))
-        path.addLine(to: CGPoint(x: maxWidth, y: maxHeight))
-        path.move(to: CGPoint(x: maxWidth, y: 0))
-        path.addLine(to: CGPoint(x: 0, y: maxHeight))
-        path.close()
-        path.lineWidth = 2
-        UIColor.red.setStroke()
-        path.stroke()
     }
     
     private func convertToGrayScale(image: UIImage) -> UIImage {

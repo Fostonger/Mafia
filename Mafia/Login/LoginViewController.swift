@@ -24,7 +24,7 @@ class LoginViewModel {
         ) { [weak self] result in
             switch result {
             case .success(let userId):
-                let user = User(id: userId, nickname: credentials.nickname)
+                let user = User(id: userId, username: credentials.nickname)
                 try! MafiaUserDefaults.standard.set(user, forKey: "User")
                 self?.delegate.openHomeView(with: user)
             case .failure(let failure):
@@ -46,6 +46,7 @@ class LoginViewController: UIViewController {
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
         textField.textContentType = .username
+        textField.font = .podkovaFont(type: .regular)
         return textField
     }()
     
@@ -74,6 +75,7 @@ class LoginViewController: UIViewController {
         button.layer.borderColor = UIColor.systemBlue.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 8
+        button.titleLabel?.font = .podkovaFont(type: .regular)
         button.isEnabled = false
         return button
     }()
@@ -84,6 +86,7 @@ class LoginViewController: UIViewController {
         button.layer.borderColor = UIColor.systemPink.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 8
+        button.titleLabel?.font = .podkovaFont(type: .regular)
         button.isEnabled = true
         return button
     }()
@@ -168,7 +171,7 @@ class LoginViewController: UIViewController {
             fatalError("Credentials are nil")
         }
         loginButton.isEnabled = false
-        let credentials = LoginCredentials(nickname: nickname, password: password)
+        let credentials = LoginCredentials(nickname: nickname, password: password.MD5)
         model.logIn(with: credentials) { [weak self] result in
             switch result {
             case .success(_):

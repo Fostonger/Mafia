@@ -26,6 +26,7 @@ extension URLSession {
                     let decoder = JSONDecoder()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
                     let result = try decoder.decode(expecting, from: data)
+                    print(result)
                     completion(.success(result))
                 } catch {
                     completion(.failure(error))

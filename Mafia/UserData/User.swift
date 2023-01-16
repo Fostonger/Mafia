@@ -2,5 +2,6 @@ typealias UserId = Int
 
 struct User: Codable {
     let id: UserId
-    let nickname: String
+    let username: String
+    var isAdmin: Bool? = nil
 }

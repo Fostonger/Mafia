@@ -17,6 +17,7 @@ class EnterCodeViewController: UIViewController {
         textField.autocapitalizationType = .none
         textField.keyboardType = .numberPad
         textField.contentMode = .center
+        textField.font = .podkovaFont(type: .regular)
         return textField
     }()
     
@@ -26,6 +27,7 @@ class EnterCodeViewController: UIViewController {
         button.layer.borderColor = UIColor.systemGray.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 8
+        button.titleLabel?.font = .podkovaFont(type: .regular)
         button.isEnabled = false
         return button
     }()

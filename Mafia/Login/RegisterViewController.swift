@@ -17,7 +17,7 @@ class RegisterViewModel {
         ) { [weak self] result in
             switch result {
             case .success(let userId):
-                let user = User(id: userId, nickname: credentials.nickname)
+                let user = User(id: userId, username: credentials.nickname)
                 try! MafiaUserDefaults.standard.set(user, forKey: "User")
                 self?.delegate.openHomeView(with: user)
             case .failure(let failure):
@@ -39,6 +39,7 @@ class RegisterViewController: UIViewController {
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
         textField.textContentType = .username
+        textField.font = .podkovaFont(type: .regular)
         return textField
     }()
     
@@ -68,6 +69,7 @@ class RegisterViewController: UIViewController {
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 8
         button.isEnabled = false
+        button.titleLabel?.font = .podkovaFont(type: .regular)
         return button
     }()
     
@@ -135,7 +137,7 @@ class RegisterViewController: UIViewController {
             fatalError("Credentials are nil")
         }
         registerButton.isEnabled = false
-        let credentials = LoginCredentials(nickname: nickname, password: password)
+        let credentials = LoginCredentials(nickname: nickname, password: password.MD5)
         model.register(with: credentials) { [weak self] response in
             switch response {
             case .success(_):

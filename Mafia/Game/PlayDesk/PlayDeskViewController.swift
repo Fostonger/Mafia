@@ -38,15 +38,41 @@ class PlayDeskViewController: UICollectionViewController, UICollectionViewDelega
     
     private func handle(update: GameModel.State.Update) {
         switch update {
-        case .usersStateUpdate(_, _, let comissarIsRight):
+        case .usersStateUpdate(_, let deadUsers, let comissarIsRight):
             collectionView.reloadData()
-            coverVC.enqueue { [weak coverVC] in
-                coverVC?.setTitle(title: "Комиссар сделал \(comissarIsRight ? "правильный" : "неправильный") выбор")
+            switch model.current.stage {
+            case .townAwaken:
+                coverVC.enqueue { [weak coverVC] in
+                    coverVC?.setTitle(
+                        title: "Итоги ночи",
+                        message:  """
+                              Комиссар сделал \(comissarIsRight ? "правильный" : "неправильный") выбор
+                              Этой ночью \(deadUsers.first != nil ? "убили \(deadUsers.first!.username)" : "никого не убили")
+                              """,
+                        withDuration: 3
+                    )
+                }
+                presentIfPossible()
+            case .mafia:
+                coverVC.enqueue { [weak coverVC] in
+                    coverVC?.setTitle(
+                        title: "Итог голосования",
+                        message:  """
+                              В ходе голосования \(deadUsers.first != nil ? "убили \(deadUsers.first!.username)" : "никого не убили")
+                              """,
+                        withDuration: 2
+                    )
+                }
+                presentIfPossible()
+                model.perform(update: .gameStageChange(stage: .mafia))
+            default:
+                break
             }
         case .gameStageChange(let stage):
             stage |> newGameStageHandling
         case .setRole(let role):
             role |> presentRoleSetting
+            model.getUsersStatus()
         case .error(let error):
             presentAlert(title: "Ошибка!", message: error.localizedDescription)
         }
@@ -61,24 +87,46 @@ class PlayDeskViewController: UICollectionViewController, UICollectionViewDelega
         coverVC.enqueue { [weak coverVC] in
             coverVC?.setTitle(title: "Ваша роль", message: role.localizedName, withDuration: 1)
         }
-        if presentedViewController == nil {
-            present(coverVC, animated: false)
-        }
+        presentIfPossible()
     }
     
     private func newGameStageHandling(stage: GameStage) {
+        if stage.rawValue > 3 {
+            coverVC.enqueue { [weak coverVC] in
+                coverVC?.setTitle(title: "Игра окончена", message: stage.localizedStage)
+            }
+            coverVC.enqueue { [weak self] in
+                self?.dismiss(animated: true)
+                self?.dismiss(animated: true)
+            }
+            presentIfPossible()
+            return
+        }
+        
         let intStage = stage.rawValue
         let intRole = model.current.role?.rawValue ?? 0
         let isAsleep = !(intStage < 1 || intRole == intStage)
-        collectionView.isUserInteractionEnabled = !isAsleep
-        coverVC.enqueue { [weak coverVC] in
-            coverVC?.setTitle(title: stage.localizedStage)
+        let isDead = model.current.deadUsers.contains(where: { return $0.id == model.user.id })
+        collectionView.isUserInteractionEnabled = !(isAsleep && !isDead)
+        coverVC.enqueue { [weak coverVC, weak self] in
+            coverVC?.setTitle(
+                title: stage.localizedStage,
+                message: stage == .pending ? "Код игры: \(self!.model.gameId)" : nil,
+                withDuration: (isAsleep || stage == .pending) ? 400 : 1
+            )
         }
-        coverVC.hidePresentingLabel() // Скрываем лейбл прошлого хода
+        presentIfPossible() // Скрываем лейбл прошлого хода
         if isAsleep {
             model.getGameStage()
-        } else {
-            coverVC.hidePresentingLabel() // Скрываем лейбл нынешнего хода если человеку нужно сходить
+        }
+    }
+    
+    private func presentIfPossible() {
+        if presentedViewController == nil {
+            present(coverVC, animated: false)
+        }
+        else {
+            coverVC.hidePresentingLabel()
         }
     }
     
@@ -96,13 +144,14 @@ class PlayDeskViewController: UICollectionViewController, UICollectionViewDelega
         if indexPath.section == 0 {
             cell.setup(
                 user: model.current.aliveUsers[indexPath.row],
-                image: UIImage(named: "mafia1")!,
+                image: UIImage(named: "icon\(indexPath.row)")!,
                 isDead: false
             )
         } else {
+            print("\(indexPath.row + model.current.aliveUsers.count)")
             cell.setup(
                 user: model.current.deadUsers[indexPath.row],
-                image: UIImage(named: "mafia1")!,
+                image: UIImage(named: "icon\(indexPath.row + model.current.aliveUsers.count)")!,
                 isDead: true
             )
         }
@@ -110,14 +159,28 @@ class PlayDeskViewController: UICollectionViewController, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: 80)
+        return CGSize(width: 120, height: 120)
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         guard indexPath.section == 0 else { return }
         let victimId = model.current.aliveUsers[indexPath.row].id
+        guard victimId != model.user.id || model.current.stage == .doctor else {
+            presentAlert(title: "Запрещено", message: "Нельзя использовать способность на себя")
+            return
+        }
         model.makeAction(victimId: victimId)
+        if model.current.stage == .townAwaken {
+            coverVC.enqueue { [weak coverVC] in
+                coverVC?.setTitle(
+                    title: "Ожидание хода других игроков",
+                    message: "Отдохните",
+                    withDuration: 400
+                )
+            }
+            presentIfPossible()
+        }
         collectionView.isUserInteractionEnabled = false
     }
 }
