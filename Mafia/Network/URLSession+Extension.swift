@@ -8,7 +8,7 @@ enum APIError: Error {
 
 protocol MafiaAPIClient {
     func request<T: Codable>(apiRequest: MafiaAPI, expecting: T.Type, completion: @escaping (Result<T, Error>) -> ())
-    func requestOneElement<T>(apiRequest: MafiaAPI, expecting: T.Type, completion: @escaping (Result<T, Error>) -> ())
+    func requestOneElement<T: Codable>(apiRequest: MafiaAPI, expecting: T.Type, completion: @escaping (Result<T, Error>) -> ())
 }
 
 extension URLSession: MafiaAPIClient {

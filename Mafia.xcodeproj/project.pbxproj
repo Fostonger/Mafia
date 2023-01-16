@@ -53,6 +53,7 @@
 		05FC6203295946C7004BC829 /* MafiaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FC6202295946C7004BC829 /* MafiaButton.swift */; };
 		05FC620529594D3B004BC829 /* String+Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FC620429594D3B004BC829 /* String+Hash.swift */; };
 		0825F30C37DBCBD8F5FB17DD /* Pods_Mafia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A4A114FFCFD550986DE997 /* Pods_Mafia.framework */; };
+		4D3E576E297570D900A779E9 /* MafiaAPIClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3E576D297570D800A779E9 /* MafiaAPIClientStub.swift */; };
 		9C5151E48D651B7DE7744314 /* Pods_MafiaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 256FAFCBCF57BCF5141E7C3D /* Pods_MafiaTests.framework */; };
 		E8CF526D5E3CBBC9A77E8477 /* Pods_Mafia_MafiaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A228C4169945046C33D5C36B /* Pods_Mafia_MafiaUITests.framework */; };
 /* End PBXBuildFile section */
@@ -128,6 +129,7 @@
 		05FC620429594D3B004BC829 /* String+Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Hash.swift"; sourceTree = "<group>"; };
 		256FAFCBCF57BCF5141E7C3D /* Pods_MafiaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MafiaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35289EAE3026555892D1B825 /* Pods-MafiaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MafiaTests.debug.xcconfig"; path = "Target Support Files/Pods-MafiaTests/Pods-MafiaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4D3E576D297570D800A779E9 /* MafiaAPIClientStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MafiaAPIClientStub.swift; sourceTree = "<group>"; };
 		57C5A150EF947E83372A0BE9 /* Pods-Mafia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mafia.release.xcconfig"; path = "Target Support Files/Pods-Mafia/Pods-Mafia.release.xcconfig"; sourceTree = "<group>"; };
 		9BA6E7A026D7B38F45251C22 /* Pods-Mafia-MafiaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mafia-MafiaUITests.release.xcconfig"; path = "Target Support Files/Pods-Mafia-MafiaUITests/Pods-Mafia-MafiaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A228C4169945046C33D5C36B /* Pods_Mafia_MafiaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mafia_MafiaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,6 +271,7 @@
 		0567E91D28FF8CD6001F774A /* Mafia */ = {
 			isa = PBXGroup;
 			children = (
+				4D3E576C297570B900A779E9 /* TestHelpers */,
 				05FC61EB29594099004BC829 /* Font */,
 				05BCB7FD293CF1CB009EC0F4 /* Mafia.entitlements */,
 				05BCB7FE293CFC4D009EC0F4 /* Game */,
@@ -395,6 +398,14 @@
 				CD81AA0B0D64F940F6AAEE18 /* Pods-MafiaTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		4D3E576C297570B900A779E9 /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				4D3E576D297570D800A779E9 /* MafiaAPIClientStub.swift */,
+			);
+			path = TestHelpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -674,6 +685,7 @@
 				052BAF53294F94BC00928B25 /* ProgressView.swift in Sources */,
 				051AA46629589C5100380116 /* Queue.swift in Sources */,
 				05D76358294E32C8003AAD62 /* PlayerCollectionViewCell.swift in Sources */,
+				4D3E576E297570D900A779E9 /* MafiaAPIClientStub.swift in Sources */,
 				05D76349294DFF57003AAD62 /* MafiaAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
