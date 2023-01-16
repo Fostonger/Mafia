@@ -1,6 +1,12 @@
 import Foundation
 
-final class MafiaUserDefaults {
+protocol MafiaUserDefaultsProtocol {
+    func set(_ value: Codable, forKey key: String) throws
+    func object<T: Codable>(forKey key: String, type: T.Type) throws -> T?
+    func removeObject(forKey key: String)
+}
+
+final class MafiaUserDefaults: MafiaUserDefaultsProtocol {
     static let standard = MafiaUserDefaults()
     
     func set(_ value: Codable, forKey key: String) throws {

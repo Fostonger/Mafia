@@ -15,8 +15,8 @@ class GameCoordinator: UINavigationController {
         model.notifier.subscribeWeak(self, type(of: self).process)
     }
     
-    static func make(user: User, gameId: GameID) -> GameCoordinator {
-        let model = GameModel(gameId: gameId, user: user)
+    static func make(user: User, gameId: GameID, client: MafiaAPIClient) -> GameCoordinator {
+        let model = GameModel(gameId: gameId, user: user, client: client)
         return GameCoordinator(user: user, gameId: gameId, model: model)
     }
     

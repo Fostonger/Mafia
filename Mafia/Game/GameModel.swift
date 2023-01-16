@@ -59,10 +59,12 @@ private struct UsersStatus: Codable {
 class GameModel: AsyncState<GameModel.State, GameModel.State.Update> {
     let gameId: GameID
     let user: User
+    let client: MafiaAPIClient
     
-    init(gameId: GameID, user: User) {
+    init(gameId: GameID, user: User, client: MafiaAPIClient) {
         self.gameId = gameId
         self.user = user
+        self.client = client
         
         super.init(
             state: .init(aliveUsers: [], deadUsers: [], stage: .pending, comissarIsRight: false, role: nil),
@@ -71,7 +73,7 @@ class GameModel: AsyncState<GameModel.State, GameModel.State.Update> {
             return (state, .gameStageChange(stage: .pending))
         }
         
-        URLSession.shared.requestOneElement(
+        client.requestOneElement(
             apiRequest: .getRole(lobbyId: gameId, userId: user.id),
             expecting: Int.self
         ) { [weak self] result in
@@ -132,7 +134,7 @@ class GameModel: AsyncState<GameModel.State, GameModel.State.Update> {
 
 extension GameModel {
     func makeAction(victimId: UserId) {
-        URLSession.shared.requestOneElement(
+        client.requestOneElement(
             apiRequest: .chooseVictim(
                 gameId: gameId,
                 victimId: victimId,
@@ -151,7 +153,7 @@ extension GameModel {
     }
     
     func getGameStage() {
-        URLSession.shared.requestOneElement(
+        client.requestOneElement(
             apiRequest: .getGameStage(gameId: gameId),
             expecting: Int.self
         ) { [weak self] result in
@@ -166,7 +168,7 @@ extension GameModel {
     }
     
     func getUsersStatus() {
-        URLSession.shared.request(
+        client.request(
             apiRequest: .getPlayersStatuses(gameId: gameId),
             expecting: UsersStatus.self
         ) { [weak self] result in

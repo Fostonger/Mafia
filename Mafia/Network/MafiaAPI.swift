@@ -1,6 +1,6 @@
 import Foundation
 
-fileprivate let host = "http://172.20.10.3:8000"
+fileprivate let host = "http://192.168.0.109:8000"
 
 enum MafiaAPI {
     case login(username: String, password: String)

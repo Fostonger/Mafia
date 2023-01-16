@@ -12,7 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     func openHomeView(with user: User) {
-        let coorinator = HomeCoordinator.make(user: user)
+        let coorinator = HomeCoordinator.make(user: user, client: URLSession.shared)
         setRootViewController(coorinator)
     }
 
@@ -33,7 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
         let vc: UIViewController
         if let savedUser = try? MafiaUserDefaults.standard.object(forKey: "User", type: User.self) {
-            vc = HomeCoordinator.make(user: savedUser)
+            vc = HomeCoordinator.make(user: savedUser, client: URLSession.shared)
         } else {
             vc = UIStoryboard(name: "Main", bundle: nil)
                 .instantiateViewController(identifier: "LoginNavigationController")

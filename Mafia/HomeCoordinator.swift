@@ -20,8 +20,8 @@ class HomeCoordinator: UINavigationController {
         setViewControllers([homeView], animated: true)
     }
     
-    static func make(user: User) -> HomeCoordinator {
-        let model = HomeModel(userId: user.id)
+    static func make(user: User, client: MafiaAPIClient) -> HomeCoordinator {
+        let model = HomeModel(userId: user.id, client: client)
         let coordinator = HomeCoordinator(user: user, model: model)
         return coordinator
     }
@@ -47,12 +47,10 @@ extension HomeCoordinator: LobbiesCoordinator {
     }
     
     func joinLobby(with gameId: Int) {
-        showHUD()
         model.joinLobby(with: gameId) { [weak self] result in
             guard let self = self else {
                 return
             }
-            self.hideHUD()
             switch result {
             case .success(_):
                 let gameScreen = self.openGameScreen(gameId: gameId)
@@ -64,26 +62,22 @@ extension HomeCoordinator: LobbiesCoordinator {
     }
     
     func createLobby(amountOfPlayers: Int) {
-        URLSession.shared.requestOneElement(
-            apiRequest: .createLobby(amountOfPlayers: amountOfPlayers, userId: user.id),
-            expecting: Int.self
-        ) { [weak self] result in
+        model.createLobby(playersCount: amountOfPlayers) { [weak self] result in
             guard let self = self else {
                 return
             }
-            self.hideHUD()
             switch result {
-            case .failure(let error):
-                print("error: \(error.localizedDescription)")
             case .success(let gameId):
                 self.joinLobby(with: gameId)
                 self.user.isAdmin = true
+            case .failure(let error):
+                print("error: \(error.localizedDescription)")
             }
         }
     }
     
     func openGameScreen(gameId: GameID) -> GameCoordinator {
-        let coordinator = GameCoordinator.make(user: user, gameId: gameId)
+        let coordinator = GameCoordinator.make(user: user, gameId: gameId, client: model.client)
         coordinator.modalPresentationStyle = .fullScreen
         return coordinator
     }

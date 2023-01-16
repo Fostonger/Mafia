@@ -17,15 +17,23 @@ class LoginViewModel {
         return delegate
     }
     
+    private let client: MafiaAPIClient
+    private let defaults: MafiaUserDefaultsProtocol
+    
+    init(client: MafiaAPIClient, defaults: MafiaUserDefaultsProtocol) {
+        self.client = client
+        self.defaults = defaults
+    }
+    
     func logIn(with credentials: LoginCredentials, completion: @escaping(Result<User, Error>) -> Void) {
-        URLSession.shared.requestOneElement(
+        client.requestOneElement(
             apiRequest: .login(username: credentials.nickname, password: credentials.password),
             expecting: Int.self
         ) { [weak self] result in
             switch result {
             case .success(let userId):
                 let user = User(id: userId, username: credentials.nickname)
-                try! MafiaUserDefaults.standard.set(user, forKey: "User")
+                try! self?.defaults.set(user, forKey: "User")
                 self?.delegate.openHomeView(with: user)
             case .failure(let failure):
                 completion(.failure(failure))
@@ -111,7 +119,7 @@ class LoginViewController: UIViewController {
         return stackView
     }()
     
-    private let model = LoginViewModel()
+    private let model = LoginViewModel(client: URLSession.shared, defaults: MafiaUserDefaults.standard)
     
     override func viewDidLoad() {
         super.viewDidLoad()

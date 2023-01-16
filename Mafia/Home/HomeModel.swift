@@ -7,14 +7,16 @@ protocol LobbyNetworkModel {
 }
 
 class HomeModel: LobbyNetworkModel {
-    let userId: UserId
+    private let userId: UserId
+    let client: MafiaAPIClient
     
-    init(userId: UserId) {
+    init(userId: UserId, client: MafiaAPIClient) {
         self.userId = userId
+        self.client = client
     }
     
     func joinLobby(with code: Int, completion: @escaping(Result<GameID, Error>) -> ()) {
-        URLSession.shared.requestOneElement(
+        client.requestOneElement(
             apiRequest: .joinLobby(userId: userId, code: code),
             expecting: Int.self
         ) { result in
@@ -27,8 +29,16 @@ class HomeModel: LobbyNetworkModel {
         }
     }
     
+    func createLobby(playersCount: Int, completion: @escaping(Result<GameID, Error>) -> Void) {
+        client.requestOneElement(
+            apiRequest: .createLobby(amountOfPlayers: playersCount, userId: userId),
+            expecting: Int.self,
+            completion: completion
+        )
+    }
+    
     func loadAchievements(of userId: UserId, completion: @escaping(Result<Int, Error>) -> Void) {
-        URLSession.shared.requestOneElement(
+        client.requestOneElement(
             apiRequest: .getAchievements(userId: userId),
             expecting: Int.self,
             completion: completion
