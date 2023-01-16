@@ -40,6 +40,7 @@ class PlayDeskViewController: UICollectionViewController, UICollectionViewDelega
         switch update {
         case .usersStateUpdate(_, let deadUsers, let comissarIsRight):
             collectionView.reloadData()
+            let deadUsersNames = deadUsers.compactMap({ $0.username }).joined(separator: ", ")
             switch model.current.stage {
             case .townAwaken:
                 coverVC.enqueue { [weak coverVC] in
@@ -47,7 +48,7 @@ class PlayDeskViewController: UICollectionViewController, UICollectionViewDelega
                         title: "Итоги ночи",
                         message:  """
                               Комиссар сделал \(comissarIsRight ? "правильный" : "неправильный") выбор
-                              Этой ночью \(deadUsers.first != nil ? "убили \(deadUsers.first!.username)" : "никого не убили")
+                              Этой ночью \(!deadUsersNames.isEmpty ? "убили: \(deadUsersNames)" : "никого не убили")
                               """,
                         withDuration: 3
                     )
@@ -58,7 +59,7 @@ class PlayDeskViewController: UICollectionViewController, UICollectionViewDelega
                     coverVC?.setTitle(
                         title: "Итог голосования",
                         message:  """
-                              В ходе голосования \(deadUsers.first != nil ? "убили \(deadUsers.first!.username)" : "никого не убили")
+                              В ходе голосования \(!deadUsersNames.isEmpty ? "убили: \(deadUsersNames)" : "никого не убили")
                               """,
                         withDuration: 2
                     )
