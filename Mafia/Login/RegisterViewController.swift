@@ -37,7 +37,7 @@ class RegisterViewModel {
 
 class RegisterViewController: UIViewController {
     
-    private let nicknameTextField: UITextField = {
+    let nicknameTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.tag = 0
@@ -51,7 +51,7 @@ class RegisterViewController: UIViewController {
         return textField
     }()
     
-    private let passwordTextField: UITextField = {
+    let passwordTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.tag = 1
@@ -63,14 +63,14 @@ class RegisterViewController: UIViewController {
         return textField
     }()
     
-    private let loginView: UIView = {
+    let loginView: UIView = {
         let view = UIView()
         view.backgroundColor = .tertiarySystemBackground
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    private let registerButton: UIButton = {
+    let registerButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Register", for: .normal)
         button.layer.borderColor = UIColor.systemBlue.cgColor
@@ -81,7 +81,7 @@ class RegisterViewController: UIViewController {
         return button
     }()
     
-    private let loginStackView: UIStackView = {
+    let loginStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
@@ -91,7 +91,7 @@ class RegisterViewController: UIViewController {
         return stackView
     }()
     
-    private let model = RegisterViewModel(client: URLSession.shared, defaults: MafiaUserDefaults.standard)
+    lazy var model = RegisterViewModel(client: URLSession.shared, defaults: MafiaUserDefaults.standard)
     
     override func viewDidLoad() {
         super.viewDidLoad()

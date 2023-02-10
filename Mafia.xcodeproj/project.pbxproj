@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051408BF2985CEF4003C7CF5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051408BE2985CEF4003C7CF5 /* main.swift */; };
+		051408C12985CF35003C7CF5 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051408C02985CF35003C7CF5 /* TestingAppDelegate.swift */; };
 		051AA46629589C5100380116 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051AA46529589C5100380116 /* Queue.swift */; };
 		0523462628FF908B004198CD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523462528FF908A004198CD /* LoginViewController.swift */; };
 		0523462A28FF9259004198CD /* LoginCredentialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523462928FF9259004198CD /* LoginCredentialsViewController.swift */; };
@@ -30,9 +32,10 @@
 		0567E92628FF8CD6001F774A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0567E92428FF8CD6001F774A /* Main.storyboard */; };
 		0567E92828FF8CDA001F774A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0567E92728FF8CDA001F774A /* Assets.xcassets */; };
 		0567E92B28FF8CDA001F774A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0567E92928FF8CDA001F774A /* LaunchScreen.storyboard */; };
-		0567E93628FF8CDB001F774A /* MafiaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567E93528FF8CDB001F774A /* MafiaTests.swift */; };
-		0567E94028FF8CDB001F774A /* MafiaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567E93F28FF8CDB001F774A /* MafiaUITests.swift */; };
-		0567E94228FF8CDB001F774A /* MafiaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567E94128FF8CDB001F774A /* MafiaUITestsLaunchTests.swift */; };
+		05B4BCB82996849200FD59BE /* RegisterViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCB72996849200FD59BE /* RegisterViewControllerTests.swift */; };
+		05B4BCBA2996856C00FD59BE /* MafiaUserDefaultsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCB92996856C00FD59BE /* MafiaUserDefaultsMock.swift */; };
+		05B4BCBB2996857E00FD59BE /* MafiaAPIClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3E576D297570D800A779E9 /* MafiaAPIClientStub.swift */; };
+		05B4BCBD299689F400FD59BE /* ButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCBC299689F400FD59BE /* ButtonHelper.swift */; };
 		05BCB7FC293CE0F1009EC0F4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BCB7FB293CE0F1009EC0F4 /* User.swift */; };
 		05BCB800293CFC5D009EC0F4 /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BCB7FF293CFC5D009EC0F4 /* GameCoordinator.swift */; };
 		05BCB803293D053D009EC0F4 /* PlayDeskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BCB802293D053D009EC0F4 /* PlayDeskViewController.swift */; };
@@ -53,9 +56,7 @@
 		05FC6203295946C7004BC829 /* MafiaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FC6202295946C7004BC829 /* MafiaButton.swift */; };
 		05FC620529594D3B004BC829 /* String+Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FC620429594D3B004BC829 /* String+Hash.swift */; };
 		0825F30C37DBCBD8F5FB17DD /* Pods_Mafia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A4A114FFCFD550986DE997 /* Pods_Mafia.framework */; };
-		4D3E576E297570D900A779E9 /* MafiaAPIClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3E576D297570D800A779E9 /* MafiaAPIClientStub.swift */; };
 		9C5151E48D651B7DE7744314 /* Pods_MafiaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 256FAFCBCF57BCF5141E7C3D /* Pods_MafiaTests.framework */; };
-		E8CF526D5E3CBBC9A77E8477 /* Pods_Mafia_MafiaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A228C4169945046C33D5C36B /* Pods_Mafia_MafiaUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,17 +67,12 @@
 			remoteGlobalIDString = 0567E91A28FF8CD6001F774A;
 			remoteInfo = Mafia;
 		};
-		0567E93C28FF8CDB001F774A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0567E91328FF8CD6001F774A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0567E91A28FF8CD6001F774A;
-			remoteInfo = Mafia;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		03A4A114FFCFD550986DE997 /* Pods_Mafia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mafia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		051408BE2985CEF4003C7CF5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		051408C02985CF35003C7CF5 /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
 		051AA46529589C5100380116 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		0523462528FF908A004198CD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0523462928FF9259004198CD /* LoginCredentialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentialsViewController.swift; sourceTree = "<group>"; };
@@ -103,10 +99,9 @@
 		0567E92A28FF8CDA001F774A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0567E92C28FF8CDA001F774A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0567E93128FF8CDB001F774A /* MafiaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MafiaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0567E93528FF8CDB001F774A /* MafiaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MafiaTests.swift; sourceTree = "<group>"; };
-		0567E93B28FF8CDB001F774A /* MafiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MafiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0567E93F28FF8CDB001F774A /* MafiaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MafiaUITests.swift; sourceTree = "<group>"; };
-		0567E94128FF8CDB001F774A /* MafiaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MafiaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		05B4BCB72996849200FD59BE /* RegisterViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewControllerTests.swift; sourceTree = "<group>"; };
+		05B4BCB92996856C00FD59BE /* MafiaUserDefaultsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MafiaUserDefaultsMock.swift; sourceTree = "<group>"; };
+		05B4BCBC299689F400FD59BE /* ButtonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHelper.swift; sourceTree = "<group>"; };
 		05BCB7FB293CE0F1009EC0F4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		05BCB7FD293CF1CB009EC0F4 /* Mafia.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mafia.entitlements; sourceTree = "<group>"; };
 		05BCB7FF293CFC5D009EC0F4 /* GameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
@@ -152,14 +147,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C5151E48D651B7DE7744314 /* Pods_MafiaTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0567E93828FF8CDB001F774A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E8CF526D5E3CBBC9A77E8477 /* Pods_Mafia_MafiaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +238,6 @@
 			children = (
 				0567E91D28FF8CD6001F774A /* Mafia */,
 				0567E93428FF8CDB001F774A /* MafiaTests */,
-				0567E93E28FF8CDB001F774A /* MafiaUITests */,
 				0567E91C28FF8CD6001F774A /* Products */,
 				2ECA6B1FAAC0747EA290C7E6 /* Pods */,
 				0E24A8F9597AA865C31C03F4 /* Frameworks */,
@@ -263,7 +249,6 @@
 			children = (
 				0567E91B28FF8CD6001F774A /* Mafia.app */,
 				0567E93128FF8CDB001F774A /* MafiaTests.xctest */,
-				0567E93B28FF8CDB001F774A /* MafiaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -271,7 +256,6 @@
 		0567E91D28FF8CD6001F774A /* Mafia */ = {
 			isa = PBXGroup;
 			children = (
-				4D3E576C297570B900A779E9 /* TestHelpers */,
 				05FC61EB29594099004BC829 /* Font */,
 				05BCB7FD293CF1CB009EC0F4 /* Mafia.entitlements */,
 				05BCB7FE293CFC4D009EC0F4 /* Game */,
@@ -289,6 +273,7 @@
 				0567E92728FF8CDA001F774A /* Assets.xcassets */,
 				0567E92928FF8CDA001F774A /* LaunchScreen.storyboard */,
 				0567E92C28FF8CDA001F774A /* Info.plist */,
+				051408BE2985CEF4003C7CF5 /* main.swift */,
 			);
 			path = Mafia;
 			sourceTree = "<group>";
@@ -296,18 +281,21 @@
 		0567E93428FF8CDB001F774A /* MafiaTests */ = {
 			isa = PBXGroup;
 			children = (
-				0567E93528FF8CDB001F774A /* MafiaTests.swift */,
+				05B4BCB62996516300FD59BE /* Helpers */,
+				051408C02985CF35003C7CF5 /* TestingAppDelegate.swift */,
+				05B4BCB72996849200FD59BE /* RegisterViewControllerTests.swift */,
 			);
 			path = MafiaTests;
 			sourceTree = "<group>";
 		};
-		0567E93E28FF8CDB001F774A /* MafiaUITests */ = {
+		05B4BCB62996516300FD59BE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				0567E93F28FF8CDB001F774A /* MafiaUITests.swift */,
-				0567E94128FF8CDB001F774A /* MafiaUITestsLaunchTests.swift */,
+				4D3E576D297570D800A779E9 /* MafiaAPIClientStub.swift */,
+				05B4BCB92996856C00FD59BE /* MafiaUserDefaultsMock.swift */,
+				05B4BCBC299689F400FD59BE /* ButtonHelper.swift */,
 			);
-			path = MafiaUITests;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		05BCB7FA293CE0DE009EC0F4 /* UserData */ = {
@@ -400,14 +388,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		4D3E576C297570B900A779E9 /* TestHelpers */ = {
-			isa = PBXGroup;
-			children = (
-				4D3E576D297570D800A779E9 /* MafiaAPIClientStub.swift */,
-			);
-			path = TestHelpers;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -449,26 +429,6 @@
 			productReference = 0567E93128FF8CDB001F774A /* MafiaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		0567E93A28FF8CDB001F774A /* MafiaUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0567E94B28FF8CDB001F774A /* Build configuration list for PBXNativeTarget "MafiaUITests" */;
-			buildPhases = (
-				E91BDFE9C4902B3CCF25AECD /* [CP] Check Pods Manifest.lock */,
-				0567E93728FF8CDB001F774A /* Sources */,
-				0567E93828FF8CDB001F774A /* Frameworks */,
-				0567E93928FF8CDB001F774A /* Resources */,
-				6B2D5AA27DB5EAB3828D0692 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0567E93D28FF8CDB001F774A /* PBXTargetDependency */,
-			);
-			name = MafiaUITests;
-			productName = MafiaUITests;
-			productReference = 0567E93B28FF8CDB001F774A /* MafiaUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -483,10 +443,6 @@
 						CreatedOnToolsVersion = 14.0.1;
 					};
 					0567E93028FF8CDB001F774A = {
-						CreatedOnToolsVersion = 14.0.1;
-						TestTargetID = 0567E91A28FF8CD6001F774A;
-					};
-					0567E93A28FF8CDB001F774A = {
 						CreatedOnToolsVersion = 14.0.1;
 						TestTargetID = 0567E91A28FF8CD6001F774A;
 					};
@@ -507,7 +463,6 @@
 			targets = (
 				0567E91A28FF8CD6001F774A /* Mafia */,
 				0567E93028FF8CDB001F774A /* MafiaTests */,
-				0567E93A28FF8CDB001F774A /* MafiaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -526,13 +481,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0567E92F28FF8CDB001F774A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0567E93928FF8CDB001F774A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -586,23 +534,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6B2D5AA27DB5EAB3828D0692 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Mafia-MafiaUITests/Pods-Mafia-MafiaUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Mafia-MafiaUITests/Pods-Mafia-MafiaUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mafia-MafiaUITests/Pods-Mafia-MafiaUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		CEC39290BE29A76D48E945D1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -618,28 +549,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mafia/Pods-Mafia-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E91BDFE9C4902B3CCF25AECD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Mafia-MafiaUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -663,6 +572,7 @@
 				05BCB80F293D1DAC009EC0F4 /* GameModel.swift in Sources */,
 				05430E34293AADE6009EF22C /* HomeCoordinator.swift in Sources */,
 				05F4C540290280F300286D6F /* Notifier.swift in Sources */,
+				051408BF2985CEF4003C7CF5 /* main.swift in Sources */,
 				05430E28293A67CC009EF22C /* HomeViewController.swift in Sources */,
 				052BAF57294F977500928B25 /* ProgressViewController.swift in Sources */,
 				0523462628FF908B004198CD /* LoginViewController.swift in Sources */,
@@ -685,7 +595,6 @@
 				052BAF53294F94BC00928B25 /* ProgressView.swift in Sources */,
 				051AA46629589C5100380116 /* Queue.swift in Sources */,
 				05D76358294E32C8003AAD62 /* PlayerCollectionViewCell.swift in Sources */,
-				4D3E576E297570D900A779E9 /* MafiaAPIClientStub.swift in Sources */,
 				05D76349294DFF57003AAD62 /* MafiaAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -694,16 +603,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0567E93628FF8CDB001F774A /* MafiaTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0567E93728FF8CDB001F774A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0567E94028FF8CDB001F774A /* MafiaUITests.swift in Sources */,
-				0567E94228FF8CDB001F774A /* MafiaUITestsLaunchTests.swift in Sources */,
+				05B4BCBB2996857E00FD59BE /* MafiaAPIClientStub.swift in Sources */,
+				051408C12985CF35003C7CF5 /* TestingAppDelegate.swift in Sources */,
+				05B4BCBA2996856C00FD59BE /* MafiaUserDefaultsMock.swift in Sources */,
+				05B4BCB82996849200FD59BE /* RegisterViewControllerTests.swift in Sources */,
+				05B4BCBD299689F400FD59BE /* ButtonHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,11 +618,6 @@
 			isa = PBXTargetDependency;
 			target = 0567E91A28FF8CD6001F774A /* Mafia */;
 			targetProxy = 0567E93228FF8CDB001F774A /* PBXContainerItemProxy */;
-		};
-		0567E93D28FF8CDB001F774A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0567E91A28FF8CD6001F774A /* Mafia */;
-			targetProxy = 0567E93C28FF8CDB001F774A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -960,44 +859,6 @@
 			};
 			name = Release;
 		};
-		0567E94C28FF8CDB001F774A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8068ED3729F79A53E595DF7 /* Pods-Mafia-MafiaUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = K6SG3GJ9A3;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.foston.MafiaUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Mafia;
-			};
-			name = Debug;
-		};
-		0567E94D28FF8CDB001F774A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BA6E7A026D7B38F45251C22 /* Pods-Mafia-MafiaUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = K6SG3GJ9A3;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.foston.MafiaUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Mafia;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1024,15 +885,6 @@
 			buildConfigurations = (
 				0567E94928FF8CDB001F774A /* Debug */,
 				0567E94A28FF8CDB001F774A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0567E94B28FF8CDB001F774A /* Build configuration list for PBXNativeTarget "MafiaUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0567E94C28FF8CDB001F774A /* Debug */,
-				0567E94D28FF8CDB001F774A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -67,7 +67,7 @@ class GameModel: AsyncState<GameModel.State, GameModel.State.Update> {
         self.client = client
         
         super.init(
-            state: .init(aliveUsers: [], deadUsers: [], stage: .pending, comissarIsRight: false, role: nil),
+            state: .init(aliveUsers: [], deadUsers: [], stage: .pending, comissarIsRight: false, showDeaths: false, role: nil),
             queue: DispatchQueue(label: "\(GameModel.self)", attributes: [])
         ) { state in
             return (state, .gameStageChange(stage: .pending))
@@ -100,6 +100,7 @@ class GameModel: AsyncState<GameModel.State, GameModel.State.Update> {
                 deadUsers: dead,
                 stage: current.stage,
                 comissarIsRight: comissarIsCorrect,
+                showDeaths: !current.aliveUsers.isEmpty,
                 role: current.role
             )
             newUpdate = State.Update.usersStateUpdate(
@@ -115,6 +116,7 @@ class GameModel: AsyncState<GameModel.State, GameModel.State.Update> {
                 deadUsers: current.deadUsers,
                 stage: stage,
                 comissarIsRight: stage == .townAwaken ? current.comissarIsRight : false,
+                showDeaths: current.stage == .townAwaken,
                 role: current.role
             )
         case .error(_):
@@ -125,6 +127,7 @@ class GameModel: AsyncState<GameModel.State, GameModel.State.Update> {
                 deadUsers: current.deadUsers,
                 stage: current.stage,
                 comissarIsRight: false,
+                showDeaths: false,
                 role: role
             )
         }
@@ -194,6 +197,7 @@ extension GameModel {
         let deadUsers: [User]
         let stage: GameStage
         let comissarIsRight: Bool
+        let showDeaths: Bool
         let role: Role?
     }
 }

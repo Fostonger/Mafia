@@ -209,10 +209,16 @@ extension LoginViewController: UITextFieldDelegate {
         return true
     }
     
+    static func chechIfTextFieldsAreNotEmpty(currentTextField: UITextField, range: NSRange, string: String, secondTextField: UITextField) -> Bool{
+        return (currentTextField.text?.count ?? 0) + string.count - range.length > 0 && !secondTextField.text.isNilOrEmpty
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let secondTextField = textField == nicknameTextField ? passwordTextField : nicknameTextField
-        loginButton.isEnabled = (textField.text?.count ?? 0) + string.count - range.length > 0
-                                && !secondTextField.text.isNilOrEmpty
+        loginButton.isEnabled = Self.chechIfTextFieldsAreNotEmpty(currentTextField: textField,
+                                                             range: range,
+                                                             string: string,
+                                                             secondTextField: secondTextField)
         return true
     }
 }

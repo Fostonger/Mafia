@@ -18,4 +18,8 @@ struct Queue<T> {
         guard !list.isEmpty else { return nil }
         return list.removeFirst()
     }
+    
+    mutating func dequeueAll() {
+        list.removeAll()
+    }
 }

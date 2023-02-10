@@ -31,6 +31,7 @@ extension URLSession: MafiaAPIClient {
                     let decoder = JSONDecoder()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
                     let result = try decoder.decode(expecting, from: data)
+                    print(apiRequest.request)
                     print(result)
                     completion(.success(result))
                 } catch {
@@ -57,11 +58,12 @@ extension URLSession: MafiaAPIClient {
                     }
                     return
                 }
-                print(String(data:data, encoding: .utf8))
                 guard let element = Int(String(data:data, encoding: .utf8)!) as? T else {
                     completion(.failure(APIError.invalidType))
                     return
                 }
+                print(apiRequest.request)
+                print(element)
                 completion(.success(element))
             }
         }

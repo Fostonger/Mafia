@@ -32,6 +32,16 @@ class CoverViewController: UIViewController {
     private var duration = 1.0
     private var waitingDispatchItem: DispatchWorkItem?
     
+    private var _isPresented: Bool = false
+    
+    var isPresented: Bool {
+        get {
+            let prevIsPresented = _isPresented
+            _isPresented = true
+            return prevIsPresented
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .clear
@@ -61,6 +71,10 @@ class CoverViewController: UIViewController {
     func hidePresentingLabel() {
         waitingDispatchItem?.perform()
         waitingDispatchItem?.cancel()
+    }
+    
+    func clearQueue() {
+        queue.dequeueAll()
     }
     
     private func removeConstraints() {

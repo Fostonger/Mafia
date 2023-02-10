@@ -19,7 +19,7 @@ extension MafiaAPI {
     var request: URLRequest {
         var url = URLComponents(string: "\(host)\(path)")!
         url.queryItems = parameters
-        print(url.url!)
+//        print(url.url!)
         var request = URLRequest(url: url.url!)
         
         request.httpMethod = method
