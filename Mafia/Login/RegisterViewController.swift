@@ -2,20 +2,15 @@ import UIKit
 import SnapKit
 
 class RegisterViewModel {
-    var delegate: SceneDelegate {
-        let scene = UIApplication.shared.connectedScenes.first
-        guard let delegate = scene?.delegate as? SceneDelegate else {
-            fatalError("there is no scene delegate")
-        }
-        return delegate
-    }
+    private let delegate: FirstPageCoordinable
     
     private let client: MafiaAPIClient
     private let defaults: MafiaUserDefaultsProtocol
     
-    init(client: MafiaAPIClient, defaults: MafiaUserDefaultsProtocol) {
+    init(client: MafiaAPIClient, defaults: MafiaUserDefaultsProtocol, delegate: FirstPageCoordinable) {
         self.client = client
         self.defaults = defaults
+        self.delegate = delegate
     }
     
     func register(with credentials: LoginCredentials, completion: @escaping(Result<User, Error>) -> Void) {
@@ -36,6 +31,20 @@ class RegisterViewModel {
 }
 
 class RegisterViewController: UIViewController {
+    
+    static func make(client: MafiaAPIClient, defaults: MafiaUserDefaultsProtocol, delegate: FirstPageCoordinable) -> RegisterViewController {
+        let model = RegisterViewModel(client: client, defaults: defaults, delegate: delegate)
+        return .init(model: model)
+    }
+    
+    private init(model: RegisterViewModel) {
+        self.model = model
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     let nicknameTextField: UITextField = {
         let textField = UITextField()
@@ -63,7 +72,7 @@ class RegisterViewController: UIViewController {
         return textField
     }()
     
-    let loginView: UIView = {
+    private let loginView: UIView = {
         let view = UIView()
         view.backgroundColor = .tertiarySystemBackground
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -81,7 +90,7 @@ class RegisterViewController: UIViewController {
         return button
     }()
     
-    let loginStackView: UIStackView = {
+    private let loginStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
@@ -91,7 +100,7 @@ class RegisterViewController: UIViewController {
         return stackView
     }()
     
-    lazy var model = RegisterViewModel(client: URLSession.shared, defaults: MafiaUserDefaults.standard)
+    private let model: RegisterViewModel
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -142,7 +151,7 @@ class RegisterViewController: UIViewController {
     
     @objc private func registerAction() {
         guard let nickname = nicknameTextField.text, let password = passwordTextField.text else {
-            fatalError("Credentials are nil")
+            return
         }
         registerButton.isEnabled = false
         let credentials = LoginCredentials(nickname: nickname, password: password.MD5)

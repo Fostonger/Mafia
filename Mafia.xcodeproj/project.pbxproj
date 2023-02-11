@@ -36,6 +36,10 @@
 		05B4BCBA2996856C00FD59BE /* MafiaUserDefaultsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCB92996856C00FD59BE /* MafiaUserDefaultsMock.swift */; };
 		05B4BCBB2996857E00FD59BE /* MafiaAPIClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3E576D297570D800A779E9 /* MafiaAPIClientStub.swift */; };
 		05B4BCBD299689F400FD59BE /* ButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCBC299689F400FD59BE /* ButtonHelper.swift */; };
+		05B4BCBF2996923400FD59BE /* KeyboardDelegatesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCBE2996923400FD59BE /* KeyboardDelegatesHelper.swift */; };
+		05B4BCCD2997AF9A00FD59BE /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCCC2997AF9A00FD59BE /* TestError.swift */; };
+		05B4BCCF2997BBD600FD59BE /* RegisterViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCCE2997BBD600FD59BE /* RegisterViewControllerSnapshotTests.swift */; };
+		05B4BCD12997BE3600FD59BE /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCD02997BE3600FD59BE /* NavigationHelper.swift */; };
 		05BCB7FC293CE0F1009EC0F4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BCB7FB293CE0F1009EC0F4 /* User.swift */; };
 		05BCB800293CFC5D009EC0F4 /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BCB7FF293CFC5D009EC0F4 /* GameCoordinator.swift */; };
 		05BCB803293D053D009EC0F4 /* PlayDeskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BCB802293D053D009EC0F4 /* PlayDeskViewController.swift */; };
@@ -102,6 +106,10 @@
 		05B4BCB72996849200FD59BE /* RegisterViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewControllerTests.swift; sourceTree = "<group>"; };
 		05B4BCB92996856C00FD59BE /* MafiaUserDefaultsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MafiaUserDefaultsMock.swift; sourceTree = "<group>"; };
 		05B4BCBC299689F400FD59BE /* ButtonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHelper.swift; sourceTree = "<group>"; };
+		05B4BCBE2996923400FD59BE /* KeyboardDelegatesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDelegatesHelper.swift; sourceTree = "<group>"; };
+		05B4BCCC2997AF9A00FD59BE /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
+		05B4BCCE2997BBD600FD59BE /* RegisterViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
+		05B4BCD02997BE3600FD59BE /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		05BCB7FB293CE0F1009EC0F4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		05BCB7FD293CF1CB009EC0F4 /* Mafia.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mafia.entitlements; sourceTree = "<group>"; };
 		05BCB7FF293CFC5D009EC0F4 /* GameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
@@ -284,6 +292,7 @@
 				05B4BCB62996516300FD59BE /* Helpers */,
 				051408C02985CF35003C7CF5 /* TestingAppDelegate.swift */,
 				05B4BCB72996849200FD59BE /* RegisterViewControllerTests.swift */,
+				05B4BCCE2997BBD600FD59BE /* RegisterViewControllerSnapshotTests.swift */,
 			);
 			path = MafiaTests;
 			sourceTree = "<group>";
@@ -294,6 +303,9 @@
 				4D3E576D297570D800A779E9 /* MafiaAPIClientStub.swift */,
 				05B4BCB92996856C00FD59BE /* MafiaUserDefaultsMock.swift */,
 				05B4BCBC299689F400FD59BE /* ButtonHelper.swift */,
+				05B4BCBE2996923400FD59BE /* KeyboardDelegatesHelper.swift */,
+				05B4BCCC2997AF9A00FD59BE /* TestError.swift */,
+				05B4BCD02997BE3600FD59BE /* NavigationHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -418,6 +430,7 @@
 				0567E92D28FF8CDB001F774A /* Sources */,
 				0567E92E28FF8CDB001F774A /* Frameworks */,
 				0567E92F28FF8CDB001F774A /* Resources */,
+				7A97EAEF06A2C44C3773EE37 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -534,6 +547,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7A97EAEF06A2C44C3773EE37 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MafiaTests/Pods-MafiaTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MafiaTests/Pods-MafiaTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MafiaTests/Pods-MafiaTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CEC39290BE29A76D48E945D1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -606,7 +636,11 @@
 				05B4BCBB2996857E00FD59BE /* MafiaAPIClientStub.swift in Sources */,
 				051408C12985CF35003C7CF5 /* TestingAppDelegate.swift in Sources */,
 				05B4BCBA2996856C00FD59BE /* MafiaUserDefaultsMock.swift in Sources */,
+				05B4BCCF2997BBD600FD59BE /* RegisterViewControllerSnapshotTests.swift in Sources */,
+				05B4BCBF2996923400FD59BE /* KeyboardDelegatesHelper.swift in Sources */,
 				05B4BCB82996849200FD59BE /* RegisterViewControllerTests.swift in Sources */,
+				05B4BCCD2997AF9A00FD59BE /* TestError.swift in Sources */,
+				05B4BCD12997BE3600FD59BE /* NavigationHelper.swift in Sources */,
 				05B4BCBD299689F400FD59BE /* ButtonHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

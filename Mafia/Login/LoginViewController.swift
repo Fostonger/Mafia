@@ -9,20 +9,15 @@ import UIKit
 import SnapKit
 
 class LoginViewModel {
-    var delegate: SceneDelegate {
-        let scene = UIApplication.shared.connectedScenes.first
-        guard let delegate = scene?.delegate as? SceneDelegate else {
-            fatalError("there is no scene delegate")
-        }
-        return delegate
-    }
+    let coordinator: FirstPageCoordinable
     
-    private let client: MafiaAPIClient
-    private let defaults: MafiaUserDefaultsProtocol
+    let client: MafiaAPIClient
+    let defaults: MafiaUserDefaultsProtocol
     
-    init(client: MafiaAPIClient, defaults: MafiaUserDefaultsProtocol) {
+    init(client: MafiaAPIClient, defaults: MafiaUserDefaultsProtocol, delegate: FirstPageCoordinable) {
         self.client = client
         self.defaults = defaults
+        self.coordinator = delegate
     }
     
     func logIn(with credentials: LoginCredentials, completion: @escaping(Result<User, Error>) -> Void) {
@@ -34,7 +29,7 @@ class LoginViewModel {
             case .success(let userId):
                 let user = User(id: userId, username: credentials.nickname)
                 try! self?.defaults.set(user, forKey: "User")
-                self?.delegate.openHomeView(with: user)
+                self?.coordinator.openHomeView(with: user)
             case .failure(let failure):
                 completion(.failure(failure))
             }
@@ -43,6 +38,22 @@ class LoginViewModel {
 }
 
 class LoginViewController: UIViewController {
+    
+    static func make(client: MafiaAPIClient, defaults: MafiaUserDefaultsProtocol, delegate: FirstPageCoordinable) -> LoginViewController {
+        let model = LoginViewModel(client: client, defaults: defaults, delegate: delegate)
+        return .init(model: model)
+    }
+    
+    private init(model: LoginViewModel) {
+        self.model = model
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private let model: LoginViewModel
     
     private let nicknameTextField: UITextField = {
         let textField = UITextField()
@@ -119,8 +130,6 @@ class LoginViewController: UIViewController {
         return stackView
     }()
     
-    private let model = LoginViewModel(client: URLSession.shared, defaults: MafiaUserDefaults.standard)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         nicknameTextField.delegate = self
@@ -191,7 +200,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func registerAction() {
-        let registerCV = RegisterViewController()
+        let registerCV = RegisterViewController.make(client: model.client, defaults: model.defaults, delegate: model.coordinator)
         navigationController?.pushViewController(registerCV, animated: true)
     }
 }

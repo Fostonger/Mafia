@@ -1,9 +1,20 @@
 import Foundation
 
-enum APIError: Error {
+enum APIError: LocalizedError {
     case invalidRequest
     case invalidData
     case invalidType
+    
+    var errorDescription: String? {
+        switch self {
+        case .invalidRequest:
+            return "Неверный запрос"
+        case .invalidData:
+            return "Сервер вернул неверные данные"
+        case .invalidType:
+            return "Сервер вернул данные неверного типа"
+        }
+    }
 }
 
 protocol MafiaAPIClient {
@@ -35,7 +46,7 @@ extension URLSession: MafiaAPIClient {
                     print(result)
                     completion(.success(result))
                 } catch {
-                    completion(.failure(error))
+                    completion(.failure(APIError.invalidType))
                 }
             }
         }

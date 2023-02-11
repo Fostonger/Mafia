@@ -7,7 +7,11 @@
 
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+protocol FirstPageCoordinable {
+    func openHomeView(with user: User)
+}
+
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, FirstPageCoordinable {
 
     var window: UIWindow?
     
@@ -35,8 +39,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let savedUser = try? MafiaUserDefaults.standard.object(forKey: "User", type: User.self) {
             vc = HomeCoordinator.make(user: savedUser, client: URLSession.shared)
         } else {
-            vc = UIStoryboard(name: "Main", bundle: nil)
-                .instantiateViewController(identifier: "LoginNavigationController")
+            let loginVC = LoginViewController.make(client: URLSession.shared, defaults: MafiaUserDefaults.standard, delegate: self)
+            vc = UINavigationController(rootViewController: loginVC)
         }
         
         self.window!.rootViewController = vc

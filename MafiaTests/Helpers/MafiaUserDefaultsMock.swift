@@ -2,9 +2,11 @@
 
 class MafiaUserDefaultsMock: MafiaUserDefaultsProtocol {
     var storage: [String: Codable] = [:]
+    var completionHandler: (Codable) -> () = { print($0) }
     
     func set(_ value: Codable, forKey key: String) throws {
         storage[key] = value
+        completionHandler(value)
     }
     
     func object<T: Codable>(forKey key: String, type: T.Type) throws -> T? {
