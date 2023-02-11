@@ -30,6 +30,7 @@ class LoginViewModel {
                 let user = User(id: userId, username: credentials.nickname)
                 try! self?.defaults.set(user, forKey: "User")
                 self?.coordinator.openHomeView(with: user)
+                completion(.success(user))
             case .failure(let failure):
                 completion(.failure(failure))
             }
@@ -55,7 +56,7 @@ class LoginViewController: UIViewController {
     
     private let model: LoginViewModel
     
-    private let nicknameTextField: UITextField = {
+    let nicknameTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.tag = 0
@@ -69,7 +70,7 @@ class LoginViewController: UIViewController {
         return textField
     }()
     
-    private let passwordTextField: UITextField = {
+    let passwordTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.tag = 1
@@ -88,7 +89,7 @@ class LoginViewController: UIViewController {
         return view
     }()
     
-    private let loginButton: UIButton = {
+    let loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Login", for: .normal)
         button.layer.borderColor = UIColor.systemBlue.cgColor
@@ -99,7 +100,7 @@ class LoginViewController: UIViewController {
         return button
     }()
     
-    private let registerButton: UIButton = {
+    let registerButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Register", for: .normal)
         button.layer.borderColor = UIColor.systemPink.cgColor
@@ -140,6 +141,8 @@ class LoginViewController: UIViewController {
     }
     
     private func setupViews() {
+        title = "Login"
+        view.backgroundColor = .systemBackground
         view.addSubview(loginStackView)
         loginStackView.addArrangedSubview(loginView)
         loginStackView.addArrangedSubview(buttonsStackView)
@@ -185,7 +188,7 @@ class LoginViewController: UIViewController {
     
     @objc private func loginAction() {
         guard let nickname = nicknameTextField.text, let password = passwordTextField.text else {
-            fatalError("Credentials are nil")
+            return
         }
         loginButton.isEnabled = false
         let credentials = LoginCredentials(nickname: nickname, password: password.MD5)

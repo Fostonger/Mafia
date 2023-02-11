@@ -40,6 +40,9 @@
 		05B4BCCD2997AF9A00FD59BE /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCCC2997AF9A00FD59BE /* TestError.swift */; };
 		05B4BCCF2997BBD600FD59BE /* RegisterViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCCE2997BBD600FD59BE /* RegisterViewControllerSnapshotTests.swift */; };
 		05B4BCD12997BE3600FD59BE /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCD02997BE3600FD59BE /* NavigationHelper.swift */; };
+		05B4BCD32997E53200FD59BE /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCD22997E53200FD59BE /* LoginViewControllerTests.swift */; };
+		05B4BCD52997EBBE00FD59BE /* TestCommonHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCD42997EBBE00FD59BE /* TestCommonHelpers.swift */; };
+		05B4BCD72997ED1700FD59BE /* LoginViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCD62997ED1700FD59BE /* LoginViewControllerSnapshotTests.swift */; };
 		05BCB7FC293CE0F1009EC0F4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BCB7FB293CE0F1009EC0F4 /* User.swift */; };
 		05BCB800293CFC5D009EC0F4 /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BCB7FF293CFC5D009EC0F4 /* GameCoordinator.swift */; };
 		05BCB803293D053D009EC0F4 /* PlayDeskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BCB802293D053D009EC0F4 /* PlayDeskViewController.swift */; };
@@ -110,6 +113,9 @@
 		05B4BCCC2997AF9A00FD59BE /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		05B4BCCE2997BBD600FD59BE /* RegisterViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
 		05B4BCD02997BE3600FD59BE /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
+		05B4BCD22997E53200FD59BE /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
+		05B4BCD42997EBBE00FD59BE /* TestCommonHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCommonHelpers.swift; sourceTree = "<group>"; };
+		05B4BCD62997ED1700FD59BE /* LoginViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
 		05BCB7FB293CE0F1009EC0F4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		05BCB7FD293CF1CB009EC0F4 /* Mafia.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mafia.entitlements; sourceTree = "<group>"; };
 		05BCB7FF293CFC5D009EC0F4 /* GameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
@@ -293,6 +299,8 @@
 				051408C02985CF35003C7CF5 /* TestingAppDelegate.swift */,
 				05B4BCB72996849200FD59BE /* RegisterViewControllerTests.swift */,
 				05B4BCCE2997BBD600FD59BE /* RegisterViewControllerSnapshotTests.swift */,
+				05B4BCD22997E53200FD59BE /* LoginViewControllerTests.swift */,
+				05B4BCD62997ED1700FD59BE /* LoginViewControllerSnapshotTests.swift */,
 			);
 			path = MafiaTests;
 			sourceTree = "<group>";
@@ -306,6 +314,7 @@
 				05B4BCBE2996923400FD59BE /* KeyboardDelegatesHelper.swift */,
 				05B4BCCC2997AF9A00FD59BE /* TestError.swift */,
 				05B4BCD02997BE3600FD59BE /* NavigationHelper.swift */,
+				05B4BCD42997EBBE00FD59BE /* TestCommonHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -633,14 +642,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05B4BCD72997ED1700FD59BE /* LoginViewControllerSnapshotTests.swift in Sources */,
 				05B4BCBB2996857E00FD59BE /* MafiaAPIClientStub.swift in Sources */,
 				051408C12985CF35003C7CF5 /* TestingAppDelegate.swift in Sources */,
 				05B4BCBA2996856C00FD59BE /* MafiaUserDefaultsMock.swift in Sources */,
+				05B4BCD52997EBBE00FD59BE /* TestCommonHelpers.swift in Sources */,
 				05B4BCCF2997BBD600FD59BE /* RegisterViewControllerSnapshotTests.swift in Sources */,
 				05B4BCBF2996923400FD59BE /* KeyboardDelegatesHelper.swift in Sources */,
 				05B4BCB82996849200FD59BE /* RegisterViewControllerTests.swift in Sources */,
 				05B4BCCD2997AF9A00FD59BE /* TestError.swift in Sources */,
 				05B4BCD12997BE3600FD59BE /* NavigationHelper.swift in Sources */,
+				05B4BCD32997E53200FD59BE /* LoginViewControllerTests.swift in Sources */,
 				05B4BCBD299689F400FD59BE /* ButtonHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
