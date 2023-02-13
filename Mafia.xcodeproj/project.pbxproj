@@ -11,7 +11,7 @@
 		051408C12985CF35003C7CF5 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051408C02985CF35003C7CF5 /* TestingAppDelegate.swift */; };
 		051AA46629589C5100380116 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051AA46529589C5100380116 /* Queue.swift */; };
 		0523462628FF908B004198CD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523462528FF908A004198CD /* LoginViewController.swift */; };
-		0523462A28FF9259004198CD /* LoginCredentialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523462928FF9259004198CD /* LoginCredentialsViewController.swift */; };
+		0523462A28FF9259004198CD /* LoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0523462928FF9259004198CD /* LoginCredentials.swift */; };
 		052BAF3C294F479F00928B25 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052BAF3B294F479F00928B25 /* Dictionary.swift */; };
 		052BAF3E294F666A00928B25 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052BAF3D294F666A00928B25 /* RegisterViewController.swift */; };
 		052BAF51294F94BC00928B25 /* StrokeColorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052BAF4C294F94BC00928B25 /* StrokeColorAnimation.swift */; };
@@ -43,6 +43,8 @@
 		05B4BCD32997E53200FD59BE /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCD22997E53200FD59BE /* LoginViewControllerTests.swift */; };
 		05B4BCD52997EBBE00FD59BE /* TestCommonHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCD42997EBBE00FD59BE /* TestCommonHelpers.swift */; };
 		05B4BCD72997ED1700FD59BE /* LoginViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCD62997ED1700FD59BE /* LoginViewControllerSnapshotTests.swift */; };
+		05B4BCDB2997F32B00FD59BE /* HomeCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCDA2997F32B00FD59BE /* HomeCoordinatorTests.swift */; };
+		05B4BCDD29995A6800FD59BE /* HomeViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B4BCDC29995A6800FD59BE /* HomeViewControllerSnapshotTests.swift */; };
 		05BCB7FC293CE0F1009EC0F4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BCB7FB293CE0F1009EC0F4 /* User.swift */; };
 		05BCB800293CFC5D009EC0F4 /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BCB7FF293CFC5D009EC0F4 /* GameCoordinator.swift */; };
 		05BCB803293D053D009EC0F4 /* PlayDeskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BCB802293D053D009EC0F4 /* PlayDeskViewController.swift */; };
@@ -82,7 +84,7 @@
 		051408C02985CF35003C7CF5 /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
 		051AA46529589C5100380116 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		0523462528FF908A004198CD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		0523462928FF9259004198CD /* LoginCredentialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentialsViewController.swift; sourceTree = "<group>"; };
+		0523462928FF9259004198CD /* LoginCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentials.swift; sourceTree = "<group>"; };
 		052BAF3B294F479F00928B25 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		052BAF3D294F666A00928B25 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		052BAF4C294F94BC00928B25 /* StrokeColorAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokeColorAnimation.swift; sourceTree = "<group>"; };
@@ -116,6 +118,8 @@
 		05B4BCD22997E53200FD59BE /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
 		05B4BCD42997EBBE00FD59BE /* TestCommonHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCommonHelpers.swift; sourceTree = "<group>"; };
 		05B4BCD62997ED1700FD59BE /* LoginViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
+		05B4BCDA2997F32B00FD59BE /* HomeCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorTests.swift; sourceTree = "<group>"; };
+		05B4BCDC29995A6800FD59BE /* HomeViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
 		05BCB7FB293CE0F1009EC0F4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		05BCB7FD293CF1CB009EC0F4 /* Mafia.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mafia.entitlements; sourceTree = "<group>"; };
 		05BCB7FF293CFC5D009EC0F4 /* GameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
@@ -171,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				0523462528FF908A004198CD /* LoginViewController.swift */,
-				0523462928FF9259004198CD /* LoginCredentialsViewController.swift */,
+				0523462928FF9259004198CD /* LoginCredentials.swift */,
 				052BAF3D294F666A00928B25 /* RegisterViewController.swift */,
 			);
 			path = Login;
@@ -295,12 +299,10 @@
 		0567E93428FF8CDB001F774A /* MafiaTests */ = {
 			isa = PBXGroup;
 			children = (
+				05B4BCD92997F2C500FD59BE /* Home */,
+				05B4BCD82997F25F00FD59BE /* Login */,
 				05B4BCB62996516300FD59BE /* Helpers */,
 				051408C02985CF35003C7CF5 /* TestingAppDelegate.swift */,
-				05B4BCB72996849200FD59BE /* RegisterViewControllerTests.swift */,
-				05B4BCCE2997BBD600FD59BE /* RegisterViewControllerSnapshotTests.swift */,
-				05B4BCD22997E53200FD59BE /* LoginViewControllerTests.swift */,
-				05B4BCD62997ED1700FD59BE /* LoginViewControllerSnapshotTests.swift */,
 			);
 			path = MafiaTests;
 			sourceTree = "<group>";
@@ -317,6 +319,26 @@
 				05B4BCD42997EBBE00FD59BE /* TestCommonHelpers.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		05B4BCD82997F25F00FD59BE /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				05B4BCB72996849200FD59BE /* RegisterViewControllerTests.swift */,
+				05B4BCCE2997BBD600FD59BE /* RegisterViewControllerSnapshotTests.swift */,
+				05B4BCD22997E53200FD59BE /* LoginViewControllerTests.swift */,
+				05B4BCD62997ED1700FD59BE /* LoginViewControllerSnapshotTests.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		05B4BCD92997F2C500FD59BE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				05B4BCDA2997F32B00FD59BE /* HomeCoordinatorTests.swift */,
+				05B4BCDC29995A6800FD59BE /* HomeViewControllerSnapshotTests.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		05BCB7FA293CE0DE009EC0F4 /* UserData */ = {
@@ -626,7 +648,7 @@
 				05BCB7FC293CE0F1009EC0F4 /* User.swift in Sources */,
 				05D7635B294E4BF2003AAD62 /* CoverViewController.swift in Sources */,
 				052BAF54294F94BC00928B25 /* StrokeAnimation.swift in Sources */,
-				0523462A28FF9259004198CD /* LoginCredentialsViewController.swift in Sources */,
+				0523462A28FF9259004198CD /* LoginCredentials.swift in Sources */,
 				05F4C54229029E3700286D6F /* URLSession+Extension.swift in Sources */,
 				052BAF3C294F479F00928B25 /* Dictionary.swift in Sources */,
 				05EEA070292E7EC300E68DFE /* MafiaUserDefaults.swift in Sources */,
@@ -644,6 +666,7 @@
 			files = (
 				05B4BCD72997ED1700FD59BE /* LoginViewControllerSnapshotTests.swift in Sources */,
 				05B4BCBB2996857E00FD59BE /* MafiaAPIClientStub.swift in Sources */,
+				05B4BCDB2997F32B00FD59BE /* HomeCoordinatorTests.swift in Sources */,
 				051408C12985CF35003C7CF5 /* TestingAppDelegate.swift in Sources */,
 				05B4BCBA2996856C00FD59BE /* MafiaUserDefaultsMock.swift in Sources */,
 				05B4BCD52997EBBE00FD59BE /* TestCommonHelpers.swift in Sources */,
@@ -652,6 +675,7 @@
 				05B4BCB82996849200FD59BE /* RegisterViewControllerTests.swift in Sources */,
 				05B4BCCD2997AF9A00FD59BE /* TestError.swift in Sources */,
 				05B4BCD12997BE3600FD59BE /* NavigationHelper.swift in Sources */,
+				05B4BCDD29995A6800FD59BE /* HomeViewControllerSnapshotTests.swift in Sources */,
 				05B4BCD32997E53200FD59BE /* LoginViewControllerTests.swift in Sources */,
 				05B4BCBD299689F400FD59BE /* ButtonHelper.swift in Sources */,
 			);

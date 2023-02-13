@@ -6,6 +6,7 @@ class MafiaAPIClientStub: MafiaAPIClient {
     var dataTaskArgsRequest: [MafiaAPI] = []
     var dataTaskArgsCompletionHandler:
             [(Data?, URLResponse?, Error?) -> Void] = []
+    var testCompletionHandler: () -> () = { return }
     
     func request<T: Codable>(
         apiRequest: MafiaAPI,
@@ -14,7 +15,7 @@ class MafiaAPIClientStub: MafiaAPIClient {
     ) {
         dataTaskCallCount += 1
         dataTaskArgsRequest.append(apiRequest)
-        dataTaskArgsCompletionHandler.append({ data, _, error in
+        dataTaskArgsCompletionHandler.append({ [weak self] data, _, error in
             DispatchQueue.main.async {
                 guard let data = data else {
                     if let error = error {
@@ -22,6 +23,7 @@ class MafiaAPIClientStub: MafiaAPIClient {
                     } else {
                         completion(.failure(APIError.invalidData))
                     }
+                    self?.testCompletionHandler()
                     return
                 }
                 do {
@@ -29,8 +31,10 @@ class MafiaAPIClientStub: MafiaAPIClient {
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
                     let result = try decoder.decode(expecting, from: data)
                     completion(.success(result))
+                    self?.testCompletionHandler()
                 } catch {
                     completion(.failure(APIError.invalidType))
+                    self?.testCompletionHandler()
                 }
             }
         })
@@ -43,7 +47,7 @@ class MafiaAPIClientStub: MafiaAPIClient {
     ) where T: Codable {
         dataTaskCallCount += 1
         dataTaskArgsRequest.append(apiRequest)
-        dataTaskArgsCompletionHandler.append({ data, _, error in
+        dataTaskArgsCompletionHandler.append({ [weak self] data, _, error in
             DispatchQueue.main.async {
                 guard let data = data else {
                     if let error = error {
@@ -51,13 +55,16 @@ class MafiaAPIClientStub: MafiaAPIClient {
                     } else {
                         completion(.failure(APIError.invalidData))
                     }
+                    self?.testCompletionHandler()
                     return
                 }
                 guard let element = Int(String(data:data, encoding: .utf8)!) as? T else {
                     completion(.failure(APIError.invalidType))
+                    self?.testCompletionHandler()
                     return
                 }
                 completion(.success(element))
+                self?.testCompletionHandler()
             }
         })
     }

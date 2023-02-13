@@ -10,7 +10,7 @@ import SnapKit
 
 class HomeViewController: UIViewController {
 
-    private let titleLabel: UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .podkovaFont(size: 30, type: .semiBold)
         label.text = "МАФИЯ ОНЛАЙН"
@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
         return stackView
     }()
     
-    private let enterGameButton: UIButton = {
+    let enterGameButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Войти в игру", for: .normal)
         button.layer.borderColor = UIColor.systemGray.cgColor
@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
         return button
     }()
     
-    private let createLobbyButton: UIButton = {
+    let createLobbyButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Создать игру", for: .normal)
         button.layer.borderColor = UIColor.systemGray.cgColor
@@ -49,7 +49,7 @@ class HomeViewController: UIViewController {
         return button
     }()
     
-    private let achievementsLabel: UILabel = {
+    let achievementsLabel: UILabel = {
         let label = UILabel()
         label.font = .podkovaFont(size: 16, type: .regular)
         label.text = "Подождите, загружаем данные..."
